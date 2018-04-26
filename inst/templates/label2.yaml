@@ -1,12 +1,12 @@
-name: Label1
+name: Label2
 description: "Big label"
 prefix: test-
 format: pdf
-width: 48
-height: 69
-columns: 2
+width: 35
+height: 33
+columns: 3
 fontfamily: Helvetica
-pointsize: 8
+pointsize: 6
 margin: 5
 layout: 2
 lines: 10
@@ -25,8 +25,8 @@ block_QR:
 block_info:
   position: 3
   x_pos: -1
-  y_pos: 10
+  y_pos: 11
 block_info_optional:
   position: 4
   x_pos: -1
-  y_pos: 10
+  y_pos: 11

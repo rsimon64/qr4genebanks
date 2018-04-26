@@ -43,28 +43,29 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
 
     old_mar <- par()$mar
     par(mar=c(margin, margin, margin, margin))
-    par(mfrow = c(tpl$layout, 2))
+    par(mfrow = c(tpl$layout, 4 / tpl$layout))
 
     empty_plot()
-    img <- imager::load.image("inia.png")
-    rasterImage(img, 0, 5,11, 10)
-    text(x = 5.5, y = 5.5, label = top1, family = family)
-    text(x = 5.5, y = 4.5, label = top2, family = family)
-    text(x = 5.5, y = 3.5, label = top3, family = family)
-    text(x = 5.5, y = 2.5, label = top4, family = family)
+    img <- imager::load.image(tpl$block_ID$logo$path)
+    rasterImage(img,
+                tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
+                tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y)
+
+    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
+    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
+    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2, label = top3, family = family)
+    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3, label = top4, family = family)
 
     image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
           axes=FALSE, xlab="", ylab="")
 
 
     empty_plot()
-    #text(x = 3, y = 9, label = "Hi you", family = family)
-    legend(-1, 10, legend = blc1, bty = "n")
+    legend(tpl$block_info$x_pos, tpl$block_info$y_pos, legend = blc1, bty = "n")
 
 
     empty_plot()
-    #text(x = 3, y = 9, label = "Hi you", family = family)
-    legend(-1, 10, legend = blc2, bty = "n")
+    legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos, legend = blc2, bty = "n")
 
     par(mar=old_mar)
 
@@ -72,10 +73,8 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
 
   dev.off()
 
-
-
-
-
 }
 
-print_label(info)
+print_label(info,  template = "inst/templates/label1.yaml", tofile = "label1.pdf" )
+print_label(info,  template = "inst/templates/label2.yaml", tofile = "label2.pdf" )
+print_label(info,  template = "inst/templates/label3.yaml", tofile = "label3.pdf" )
