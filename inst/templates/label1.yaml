@@ -6,10 +6,13 @@ width: 48
 height: 69
 columns: 2
 fontfamily: Helvetica
+fontface_data: 2
+fieldnames: true
 pointsize: 8
 margin: 5
 layout: 2
 lines: 10
+spacer: 2
 block_ID:
   position: 1
   logo:

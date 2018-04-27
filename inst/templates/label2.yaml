@@ -1,15 +1,18 @@
 name: Label2
-description: "Big label"
+description: "Small label"
 prefix: test-
 format: pdf
 width: 35
 height: 33
 columns: 3
 fontfamily: Helvetica
+fontface_data: 3
+fieldnames: false
 pointsize: 6
 margin: 5
 layout: 2
 lines: 10
+spacer: 1
 block_ID:
   position: 1
   logo:

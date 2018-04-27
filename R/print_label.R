@@ -1,6 +1,6 @@
-info <- read.csv("inst/samples/invitro.csv", stringsAsFactors = FALSE)
 
-print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro", "today"),
+
+print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco in-vitro"),
                         template = "inst/templates/label1.yaml", tofile = "sample.pdf") {
 
   mm_to_inch <- 0.0393701
@@ -27,9 +27,11 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
 
   pdf(file = out, width = width, height = height, pointsize = pointsize)
 
-  top1 <- header[1]
-  top2 <- header[2]
+  top1 <- ifelse(header[1] == "today", as.character(Sys.Date()), header[1])
+  top2 <- ifelse(header[2] == "today", as.character(Sys.Date()), header[2])
   top3 <- ifelse(header[3] == "today", as.character(Sys.Date()), header[3])
+
+  spacer <- ifelse(tpl$spacer == 1, "\n", "\n\n")
 
   for(i in 1:nrow(info)) {
     rec <- info[i, ]
@@ -37,7 +39,9 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
     top4 <- rec$ID
 
     blc1 <- rec[c(2:5)]
+    blc1n<- names(info[i, c(2:5)])
     blc2 <- rec[c(6:7)]
+    blc2n<- names(info[i, c(6:7)])
 
     txtq <- paste(top1, top2, top3, top4, paste(blc1, collapse=" "), paste(blc2, collapse = " "))
 
@@ -61,11 +65,27 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
 
 
     empty_plot()
-    legend(tpl$block_info$x_pos, tpl$block_info$y_pos, legend = blc1, bty = "n")
+    if (tpl$fieldnames) {
+      legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
+             legend = paste0(blc1n, spacer),
+             bty = "n")
+    }
+
+    legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
+           legend = paste0(blc1, spacer), text.font = tpl$fontface_data,
+           bty = "n")
 
 
     empty_plot()
-    legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos, legend = blc2, bty = "n")
+    if (tpl$fieldnames) {
+      legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
+             legend = paste0(blc2n, spacer),
+             bty = "n")
+    }
+
+    legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
+           legend = paste0(blc2, spacer), text.font = tpl$fontface_data,
+           bty = "n")
 
     par(mar=old_mar)
 
@@ -75,6 +95,14 @@ print_label <- function(info, header = c("Recursos Genéticos", "Banco in-vitro"
 
 }
 
-print_label(info,  template = "inst/templates/label1.yaml", tofile = "label1.pdf" )
-print_label(info,  template = "inst/templates/label2.yaml", tofile = "label2.pdf" )
-print_label(info,  template = "inst/templates/label3.yaml", tofile = "label3.pdf" )
+info <- read.csv("inst/samples/invitro.csv", stringsAsFactors = FALSE)
+print_label(info,  header = c("Recursos Genéticos", "Banco in-vitro", "today"),
+            template = "inst/templates/label1.yaml", tofile = "label1.pdf" )
+info <- read.csv("inst/samples/dna.csv", stringsAsFactors = FALSE)
+print_label(info, header = c("Recursos Genéticos", "Banco ADN", "today"),
+            template = "inst/templates/label2.yaml",
+            tofile = "label2.pdf" )
+info <- read.csv("inst/samples/campo.csv", stringsAsFactors = FALSE)
+print_label(info, header = c("today", "Recursos Genéticos", "Banco campo"),
+            template = "inst/templates/label3.yaml",
+            tofile = "label3.pdf" )

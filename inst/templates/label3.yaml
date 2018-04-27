@@ -1,15 +1,18 @@
 name: Label3
-description: "Big label"
+description: "Long label"
 prefix: test-
 format: pdf
 width: 105
 height: 25
 columns: 1
 fontfamily: Helvetica
+fontface_data: 4
+fieldnames: false
 pointsize: 9
 margin: 8
 layout: 1
 lines: 10
+spacer: 1
 block_ID:
   position: 1
   logo:
