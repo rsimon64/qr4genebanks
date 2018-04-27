@@ -14,7 +14,7 @@ layout: 1
 lines: 10
 spacer: 1
 block_ID:
-  position: 1
+  position: 4
   logo:
     path: "inia.png"
     bl_x: 0
@@ -24,12 +24,12 @@ block_ID:
   x_pos: 5.5
   y_pos: 5.5
 block_QR:
-  position: 2
+  position: 1
 block_info:
-  position: 3
+  position: 2
   x_pos: 1
   y_pos: 9
 block_info_optional:
-  position: 4
+  position: 3
   x_pos: 1
   y_pos: 9

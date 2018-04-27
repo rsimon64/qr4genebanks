@@ -33,6 +33,21 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
 
   spacer <- ifelse(tpl$spacer == 1, "\n", "\n\n")
 
+
+  block_order <-
+    as.data.frame(cbind(
+      pos = c(tpl$block_ID$position,
+              tpl$block_QR$position,
+              tpl$block_info$position,
+              tpl$block_info_optional$position
+      ),
+      name = c("ID", "QR", "MI", "OI")
+    ), stringsAsFactors = FALSE)
+
+  block_order = dplyr::arrange(block_order, pos)$name
+
+
+
   for(i in 1:nrow(info)) {
     rec <- info[i, ]
 
@@ -49,43 +64,63 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
     par(mar=c(margin, margin, margin, margin))
     par(mfrow = c(tpl$layout, 4 / tpl$layout))
 
-    empty_plot()
-    img <- imager::load.image(tpl$block_ID$logo$path)
-    rasterImage(img,
-                tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
-                tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y)
 
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2, label = top3, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3, label = top4, family = family)
+    do_block_ID <- function() {
+      empty_plot()
+      img <- imager::load.image(tpl$block_ID$logo$path)
+      rasterImage(img,
+                  tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
+                  tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y)
 
-    image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
-          axes=FALSE, xlab="", ylab="")
+      text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
+      text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
+      text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2, label = top3, family = family)
+      text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3, label = top4, family = family)
+    }
 
+    do_block_QR <-function() {
+      image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
+            axes=FALSE, xlab="", ylab="")
+    }
 
-    empty_plot()
-    if (tpl$fieldnames) {
-      legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
-             legend = paste0(blc1n, spacer),
+    do_block_MI <- function() {
+      empty_plot()
+      if (tpl$fieldnames) {
+        legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
+               legend = paste0(blc1n, spacer),
+               bty = "n")
+      }
+
+      legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
+             legend = paste0(blc1, spacer), text.font = tpl$fontface_data,
+             bty = "n")
+
+    }
+
+    do_block_OI <- function() {
+      empty_plot()
+      if (tpl$fieldnames) {
+        legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
+               legend = paste0(blc2n, spacer),
+               bty = "n")
+      }
+
+      legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
+             legend = paste0(blc2, spacer), text.font = tpl$fontface_data,
              bty = "n")
     }
 
-    legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
-           legend = paste0(blc1, spacer), text.font = tpl$fontface_data,
-           bty = "n")
-
-
-    empty_plot()
-    if (tpl$fieldnames) {
-      legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
-             legend = paste0(blc2n, spacer),
-             bty = "n")
+    choose_block <- function(block_id) {
+      switch(block_id,
+             "ID" = do_block_ID(),
+             "QR" = do_block_QR(),
+             "MI" = do_block_MI(),
+             "OI" = do_block_OI()
+      )
     }
 
-    legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
-           legend = paste0(blc2, spacer), text.font = tpl$fontface_data,
-           bty = "n")
+
+    lapply(block_order, choose_block)
 
     par(mar=old_mar)
 
