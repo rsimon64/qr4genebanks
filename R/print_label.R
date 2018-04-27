@@ -89,6 +89,7 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
         legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
                legend = paste0(blc1n, spacer),
                bty = "n")
+        blc1 <- paste0(" ", blc1)
       }
 
       legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
@@ -103,6 +104,7 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
         legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
                legend = paste0(blc2n, spacer),
                bty = "n")
+        blc2 <- paste0(" ", blc2)
       }
 
       legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
@@ -130,14 +132,17 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
 
 }
 
-info <- read.csv("inst/samples/invitro.csv", stringsAsFactors = FALSE)
-print_label(info,  header = c("Recursos Genéticos", "Banco in-vitro", "today"),
-            template = "inst/templates/label1.yaml", tofile = "label1.pdf" )
-info <- read.csv("inst/samples/dna.csv", stringsAsFactors = FALSE)
-print_label(info, header = c("Recursos Genéticos", "Banco ADN", "today"),
-            template = "inst/templates/label2.yaml",
-            tofile = "label2.pdf" )
+# info <- read.csv("inst/samples/invitro.csv", stringsAsFactors = FALSE)
+# print_label(info,  header = c("Recursos Genéticos", "Banco in-vitro", "today"),
+#             template = "inst/templates/label1.yaml", tofile = "label1.pdf" )
+# info <- read.csv("inst/samples/dna.csv", stringsAsFactors = FALSE)
+# print_label(info, header = c("Recursos Genéticos", "Banco ADN", ""),
+#             template = "inst/templates/label2.yaml",
+#             tofile = "label2.pdf" )
 info <- read.csv("inst/samples/campo.csv", stringsAsFactors = FALSE)
+# print_label(info, header = c("today", "Recursos Genéticos", "Banco campo"),
+#             template = "inst/templates/label3.yaml",
+#             tofile = "label3.pdf" )
 print_label(info, header = c("today", "Recursos Genéticos", "Banco campo"),
-            template = "inst/templates/label3.yaml",
-            tofile = "label3.pdf" )
+            template = "inst/templates/label4.yaml",
+            tofile = "label4.pdf" )

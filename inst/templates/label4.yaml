@@ -1,18 +1,18 @@
-name: Label2
-description: "Small label"
+name: Label3
+description: "Long label"
 prefix: test-
 format: pdf
-width: 35
-height: 33
-columns: 3
+width: 25
+height: 104
+columns: 4
 fontfamily: Helvetica
-fontface_data: 3
-fieldnames: false
-pointsize: 5
-margin: 5
-layout: 2
+fontface_data: 4
+fieldnames: true
+pointsize: 9
+margin: 8
+layout: 4
 lines: 10
-spacer: 1
+spacer: 2
 block_ID:
   position: 1
   logo:
@@ -24,12 +24,12 @@ block_ID:
   x_pos: 5.5
   y_pos: 5.5
 block_QR:
-  position: 4
+  position: 3
 block_info:
   position: 2
-  x_pos: -1
-  y_pos: 11
+  x_pos: 0
+  y_pos: 10.5
 block_info_optional:
-  position: 3
-  x_pos: -1
-  y_pos: 11
+  position: 4
+  x_pos: 0
+  y_pos: 10.5

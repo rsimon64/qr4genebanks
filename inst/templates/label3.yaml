@@ -7,7 +7,7 @@ height: 25
 columns: 1
 fontfamily: Helvetica
 fontface_data: 4
-fieldnames: false
+fieldnames: true
 pointsize: 9
 margin: 8
 layout: 1
