@@ -1,13 +1,12 @@
 .Rproj.user
 .Rhistory
 .RData
-tst.pdf
-test-sample.pdf
-tst2.pdf
-tst3.pdf
+.Ruserdata
 test-label1.pdf
 test-label2.pdf
 test-label3.pdf
 test-label4.pdf
-inst/doc
+tst.pdf
+tst2.pdf
+tst3.pdf
 vignettes
