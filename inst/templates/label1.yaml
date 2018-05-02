@@ -8,7 +8,7 @@ columns: 2
 fontfamily: Helvetica
 fontface_data: 2
 fieldnames: true
-pointsize: 7
+pointsize: 9
 margin: 5
 layout: 2
 lines: 10
