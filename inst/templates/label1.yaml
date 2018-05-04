@@ -11,6 +11,7 @@ fieldnames: true
 pointsize: 9
 margin: 5
 layout: 2
+labelsperrow: 2
 lines: 10
 spacer: 2
 block_ID:

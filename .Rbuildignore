@@ -3,3 +3,4 @@
 ^.*\.doc
 ^.*\.docx
 ^inst\doc
+^notes.md

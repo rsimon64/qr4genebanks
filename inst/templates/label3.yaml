@@ -2,8 +2,8 @@ name: Label3
 description: "Long label"
 prefix: test-
 format: pdf
-width: 105
-height: 25
+width: 25
+height: 104
 columns: 1
 fontfamily: Helvetica
 fontface_data: 4
@@ -11,6 +11,7 @@ fieldnames: true
 pointsize: 9
 margin: 8
 layout: 1
+labelsperrow: 4
 lines: 10
 spacer: 1
 block_ID:

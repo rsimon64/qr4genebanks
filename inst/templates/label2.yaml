@@ -2,8 +2,8 @@ name: Label2
 description: "Small label"
 prefix: test-
 format: pdf
-width: 35
-height: 33
+width: 30
+height: 30
 columns: 3
 fontfamily: Helvetica
 fontface_data: 3
@@ -11,6 +11,7 @@ fieldnames: false
 pointsize: 5
 margin: 5
 layout: 2
+labelsperrow: 3
 lines: 10
 spacer: 1
 block_ID:

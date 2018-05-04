@@ -4,13 +4,14 @@ prefix: test-
 format: pdf
 width: 25
 height: 104
-columns: 4
+columns: 1
 fontfamily: Helvetica
 fontface_data: 4
 fieldnames: true
 pointsize: 9
 margin: 8
 layout: 4
+labelsperrow: 4
 lines: 10
 spacer: 2
 block_ID:
@@ -24,9 +25,9 @@ block_ID:
   x_pos: 5.5
   y_pos: 5.5
 block_QR:
-  position: 3
-block_info:
   position: 2
+block_info:
+  position: 3
   x_pos: 0
   y_pos: 10.5
 block_info_optional:
