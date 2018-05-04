@@ -1,4 +1,4 @@
-
+# TODO document main function
 
 print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco in-vitro"),
                         template = "inst/templates/label1.yaml", tofile = "sample.pdf") {
@@ -12,10 +12,6 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
   height <- tpl$height * mm_to_inch
   margin <- tpl$margin * mm_to_inch
   out <- paste0(tpl$prefix, tofile)
-  family <-  tpl$fontfamily
-
-
-  max_lines <- as.numeric(tpl$lines)
 
   pdf(file = out, width = width * labels_per_row, height = height, pointsize = pointsize)
   old_mar <- par()$mar
@@ -29,11 +25,12 @@ print_label <- function(info, header = c("today", "Recursos Genéticos", "Banco 
        layout_label(i, header, info, tpl)
        i <- i + 1
     }
-
   }
 
   dev.off()
 }
+
+# TODO move to examples or tests
 
 # info <- read.csv("inst/samples/invitro.csv", stringsAsFactors = FALSE)
 # print_label(info,  header = c("Recursos Genéticos", "Banco in-vitro", "today"),
