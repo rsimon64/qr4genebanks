@@ -4,3 +4,4 @@
 ^.*\.docx
 ^inst\doc
 ^notes.md
+^.*\.pdf
