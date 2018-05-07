@@ -1,8 +1,5 @@
 sv_quagga <- function(input, output, session) {
 
-  #shinyjs::hide("downloadData")
-  #shinyjs::disable("downloadData")
-
   inFile <- shiny::reactive({
     input$csvFile
   })
@@ -15,17 +12,17 @@ sv_quagga <- function(input, output, session) {
 
 
   output$contents <- shiny::renderTable({
-    head(csvData())
+    utils::head(csvData())
   })
 
-  output$ready <- reactive({
+  output$ready <- shiny::reactive({
     FALSE
   })
-  outputOptions(output, "ready", suspendWhenHidden = FALSE)
+
+  shiny::outputOptions(output, "ready", suspendWhenHidden = FALSE)
 
 
   shiny::observeEvent(input$csvFile, {
-    #shiny::updateActionButton(session, "downloadData", label ="Procesando", icon = shiny::icon("spinner"))
 
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 

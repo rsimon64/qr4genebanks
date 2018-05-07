@@ -1,28 +1,8 @@
-# downloadButtonEdit <- function (outputId, label = "Bajar", class = NULL, ...)
-# {
-#   aTag <-
-#     shiny::tags$a(
-#       id = outputId,
-#       class = paste("btn btn-default shiny-download-link",
-#                     class),
-#       href = "",
-#       target = NA, # NA here instead of _blank
-#       download = NA,
-#       shiny::icon("hourglass-start"),
-#       label,
-#       ...
-#     )
-# }
 
 ui_app <- shiny::fluidPage(
-
-  #shinyjs::useShinyjs(),
-  #shiny::tags$style(appCSS),
   shiny::titlePanel("Imprimir c\u00F3digos de barra"),
 
   shiny::verticalLayout(
-
-    #ui_quagga()
     shiny::fluidRow(
       shiny::column(6,
                     shiny::radioButtons("tplId", "Escoja un dise\u00F1o", list(
@@ -40,17 +20,6 @@ ui_app <- shiny::fluidPage(
 
       ),
       shiny::column(6,
-                    # shiny::actionButton(
-                    #   "runBtn",
-                    #   "Procesar archivo",
-                    #   class = "btn-primary",
-                    #   icon = shiny::icon("hourglass-start")
-                    # ),
-                    shiny:: tags$div(id = 'placeholder')
-                    ,
-                    shiny::conditionalPanel(condition = "output.ready",
-                      shiny::downloadButton('downloadData', 'Bajar PDF!')
-                    ),
 
                     shiny::tags$button(
                       id = 'close',
@@ -59,6 +28,9 @@ ui_app <- shiny::fluidPage(
                       #class = "btn-warning",
                       onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
                       "Cerrar applicaci\u00F3n"
+                    ),
+                    shiny::conditionalPanel(condition = "output.ready",
+                                            shiny::downloadButton('downloadData', 'Bajar PDF!')
                     )
       )
       ),
