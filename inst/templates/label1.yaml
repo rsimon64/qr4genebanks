@@ -17,7 +17,7 @@ spacer: 2
 block_ID:
   position: 1
   logo:
-    path: "inia.png"
+    path: "C:/Users/Reinhard/Documents/R/win-library/3.4/quagga/templates/inia.png"
     bl_x: 0
     bl_y: 5
     tr_x: 11
@@ -26,6 +26,7 @@ block_ID:
   y_pos: 5.5
 block_QR:
   position: 2
+  only_id: true
 block_info:
   position: 3
   x_pos: 0

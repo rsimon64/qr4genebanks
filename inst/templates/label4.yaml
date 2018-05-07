@@ -26,6 +26,7 @@ block_ID:
   y_pos: 5.5
 block_QR:
   position: 2
+  only_id: true
 block_info:
   position: 3
   x_pos: 0

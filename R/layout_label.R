@@ -1,6 +1,6 @@
 layout_label <- function(i, header, info, tpl) {
 
-  library(qrencoder)
+  #requireNamespace(qrencoder)
   family <-  tpl$fontfamily
   max_lines <- as.numeric(tpl$lines)
 
@@ -12,6 +12,8 @@ layout_label <- function(i, header, info, tpl) {
 
   spacer <- ifelse(tpl$spacer == 1, "\n", "\n\n")
 
+  pos <- NULL
+
   block_order <-
     as.data.frame(cbind(
       pos = c(tpl$block_ID$position,
@@ -22,43 +24,50 @@ layout_label <- function(i, header, info, tpl) {
       name = c("ID", "QR", "MI", "OI")
     ), stringsAsFactors = FALSE)
 
-  block_order = dplyr::arrange(block_order, pos)$name
+  block_order = dplyr::arrange_(block_order, pos)$name
 
   blc1 <- rec[c(2:5)]
   blc1n<- names(info[i, c(2:5)])
   blc2 <- rec[c(6:7)]
   blc2n<- names(info[i, c(6:7)])
 
-  txtq <- paste(top4)
+  if(tpl$block_QR$only_id) {
+    txtq <- paste(top4)
+  } else {
+    txtq <- paste(top1, top2, top3, top4,
+                  paste0(blc1n, " ", blc1),
+                  paste0(blc2n, " ", blc2))
+  }
+
 
   do_block_ID <- function() {
     empty_plot(max_lines)
     img <- imager::load.image(tpl$block_ID$logo$path)
-    rasterImage(img,
+    graphics::rasterImage(img,
                 tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
                 tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y)
 
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2, label = top3, family = family)
-    text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3, label = top4, family = family)
+    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
+    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
+    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2, label = top3, family = family)
+    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3, label = top4, family = family)
   }
 
   do_block_QR <-function() {
-    image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
+    graphics::image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
           axes=FALSE, xlab="", ylab="")
   }
 
   do_block_MI <- function() {
     empty_plot(max_lines)
     if (tpl$fieldnames) {
-      legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
+      graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos  + tpl$spacer/2 -.15,
              legend = paste0(blc1n, spacer),
              bty = "n")
       blc1 <- paste0(" ", blc1)
     }
 
-    legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
+    graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
            legend = paste0(blc1, spacer), text.font = tpl$fontface_data,
            bty = "n")
 
@@ -67,13 +76,13 @@ layout_label <- function(i, header, info, tpl) {
   do_block_OI <- function() {
     empty_plot(max_lines)
     if (tpl$fieldnames) {
-      legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
+      graphics::legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
              legend = paste0(blc2n, spacer),
              bty = "n")
       blc2 <- paste0(" ", blc2)
     }
 
-    legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
+    graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
            legend = paste0(blc2, spacer), text.font = tpl$fontface_data,
            bty = "n")
   }
