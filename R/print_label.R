@@ -41,24 +41,26 @@ print_label <- function(info,
                         header = c("today",
                                    "Recursos Gen&#0233;ticos",
                                    "Banco in-vitro"),
-                        template = system.file("/templates/label1.yaml",
+                        template = system.file("templates/label1.yaml",
                                                package = "quagga"),
                         tofile = "sample.pdf") {
 
   mm_to_inch <- 0.0393701
   tpl <- yaml::yaml.load_file(template)
 
+
   pointsize <- tpl$pointsize
   labels_per_row <- tpl$labelsperrow
   width <- (tpl$width + .5) * mm_to_inch
   height <- tpl$height * mm_to_inch
   margin <- tpl$margin * mm_to_inch
-  out <- paste0(tpl$prefix, tofile)
+  #out <- paste0(tpl$prefix, tofile)
+  out <- tofile
+  old_mar <- graphics::par()$mar
+
 
   grDevices::pdf(file = out, width = width * labels_per_row, height = height, pointsize = pointsize)
-  old_mar <- graphics::par()$mar
   graphics::par(mar=c(margin, margin, margin, margin))
-
   graphics::layout(get_design_matrix(labels_per_row))
 
   for(i in seq(1, nrow(info), by = labels_per_row)) {

@@ -1,0 +1,4 @@
+Name: Imprimir etiquetes
+Description: Imprimir etiquetes
+Binding: run_quagga
+Interactive: true

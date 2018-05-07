@@ -5,8 +5,8 @@
 \title{print_label}
 \usage{
 print_label(info, header = c("today", "Recursos Gen&#0233;ticos",
-  "Banco in-vitro"), template = system.file("/templates/label1.yaml", package
-  = "quagga"), tofile = "sample.pdf")
+  "Banco in-vitro"), template = system.file("templates/label1.yaml", package =
+  "quagga"), tofile = "sample.pdf")
 }
 \arguments{
 \item{info}{data.frame with content for barcode}

@@ -12,8 +12,6 @@ layout_label <- function(i, header, info, tpl) {
 
   spacer <- ifelse(tpl$spacer == 1, "\n", "\n\n")
 
-  pos <- NULL
-
   block_order <-
     as.data.frame(cbind(
       pos = c(tpl$block_ID$position,
@@ -24,16 +22,17 @@ layout_label <- function(i, header, info, tpl) {
       name = c("ID", "QR", "MI", "OI")
     ), stringsAsFactors = FALSE)
 
-  block_order = dplyr::arrange_(block_order, pos)$name
+  #block_order = dplyr::arrange_(block_order, block_order$pos)$name
+  block_order <- block_order[with(block_order, order(pos)), ]
 
   blc1 <- rec[c(2:5)]
   blc1n<- names(info[i, c(2:5)])
   blc2 <- rec[c(6:7)]
   blc2n<- names(info[i, c(6:7)])
 
-  if(tpl$block_QR$only_id) {
-    txtq <- paste(top4)
-  } else {
+  txtq <- paste(top4)
+
+  if(!tpl$block_QR$only_id) {
     txtq <- paste(top1, top2, top3, top4,
                   paste0(blc1n, " ", blc1),
                   paste0(blc2n, " ", blc2))
@@ -42,10 +41,20 @@ layout_label <- function(i, header, info, tpl) {
 
   do_block_ID <- function() {
     empty_plot(max_lines)
-    img <- imager::load.image(tpl$block_ID$logo$path)
-    graphics::rasterImage(img,
+    logo_path <- tpl$block_ID$logo$path
+    if(!file.exists(logo_path)) {
+      logo_path <- system.file(
+                    file.path("templates", logo_path),
+                    package = "quagga")
+    }
+    if(file.exists(logo_path)) {
+      img <- imager::load.image(logo_path)
+      graphics::rasterImage(img,
                 tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
                 tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y)
+    } else {
+      message("Logo file not found.")
+    }
 
     graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0, label = top1, family = family)
     graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1, label = top2, family = family)
@@ -54,8 +63,11 @@ layout_label <- function(i, header, info, tpl) {
   }
 
   do_block_QR <-function() {
-    graphics::image(qrencoder::qrencode_raster(txtq), asp=1, col=c("white", "black"),
-          axes=FALSE, xlab="", ylab="")
+    #essage(txtq)
+    raster::image(qrencoder::qrencode_raster(txtq)
+          , asp=1, col=c("white", "black"),
+          axes=FALSE, xlab="", ylab=""
+          )
   }
 
   do_block_MI <- function() {
@@ -96,6 +108,6 @@ layout_label <- function(i, header, info, tpl) {
     )
   }
 
-  lapply(block_order, choose_block)
+  lapply(block_order$name, choose_block)
 
 }
