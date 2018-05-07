@@ -1,6 +1,8 @@
 name: Label2
 description: "Small label"
-prefix: test-
+header1: "Recursos Gen\u00E9ticos"
+header2: "Banco invitro"
+header3: "today"
 format: pdf
 width: 30
 height: 30

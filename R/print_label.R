@@ -18,7 +18,6 @@
 #' Optional info block
 #'
 #' @param info data.frame with content for barcode
-#' @param header vector of three strings which function as header
 #' @param template path to yaml file with configuration details
 #' @param tofile path to output file
 #'
@@ -38,9 +37,9 @@
 #' }
 #'
 print_label <- function(info,
-                        header = c("today",
-                                   "Recursos Gen&#0233;ticos",
-                                   "Banco in-vitro"),
+                        # header = c("today",
+                        #            "Recursos Geneticos",
+                        #            "Banco in-vitro"),
                         template = system.file("templates/label1.yaml",
                                                package = "quagga"),
                         tofile = "sample.pdf") {
@@ -48,6 +47,11 @@ print_label <- function(info,
   mm_to_inch <- 0.0393701
   tpl <- yaml::yaml.load_file(template)
 
+  header <- c(
+    tpl$header1,
+    tpl$header2,
+    tpl$header3
+  )
 
   pointsize <- tpl$pointsize
   labels_per_row <- tpl$labelsperrow

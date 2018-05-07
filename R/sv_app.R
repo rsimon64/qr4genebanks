@@ -7,11 +7,4 @@ sv_app <- function(input, output, session) {
   })
 
 
-
-  shiny::observe({
-    if (input$close > 0){
-      shiny::stopApp()
-    }
-  })
-
 }

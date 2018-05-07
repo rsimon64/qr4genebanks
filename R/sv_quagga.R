@@ -15,13 +15,17 @@ sv_quagga <- function(input, output, session) {
 
 
   output$contents <- shiny::renderTable({
-    csvData()
+    head(csvData())
   })
 
+  output$ready <- reactive({
+    FALSE
+  })
+  outputOptions(output, "ready", suspendWhenHidden = FALSE)
 
-  shiny::observeEvent(input$runBtn, {
-    shiny::updateActionButton(session, "runBtn", label ="Procesando", icon = shiny::icon("spinner"))
 
+  shiny::observeEvent(input$csvFile, {
+    #shiny::updateActionButton(session, "downloadData", label ="Procesando", icon = shiny::icon("spinner"))
 
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 
@@ -31,21 +35,26 @@ sv_quagga <- function(input, output, session) {
 
       quagga::print_label(csvData(), template = tplFile, tofile = outFile)
 
+      output$ready <- shiny::reactive({TRUE})
+
       output$downloadData <- shiny::downloadHandler(
           filename = function() {
             outName
           },
           content = function(con) {
             file.copy(outFile, con)
+
           }
         )
-
-      shiny::updateActionButton(session, "runBtn", label ="Exito", icon = shiny::icon("check"))
-
     })
   })
 
 
 
+  shiny::observe({
+    if (input$close > 0){
+      shiny::stopApp()
+    }
+  })
 
 }

@@ -1,18 +1,18 @@
-downloadButtonEdit <- function (outputId, label = "Bajar", class = NULL, ...)
-{
-  aTag <-
-    shiny::tags$a(
-      id = outputId,
-      class = paste("btn btn-default shiny-download-link",
-                    class),
-      href = "",
-      target = NA, # NA here instead of _blank
-      download = NA,
-      shiny::icon("download"),
-      label,
-      ...
-    )
-}
+# downloadButtonEdit <- function (outputId, label = "Bajar", class = NULL, ...)
+# {
+#   aTag <-
+#     shiny::tags$a(
+#       id = outputId,
+#       class = paste("btn btn-default shiny-download-link",
+#                     class),
+#       href = "",
+#       target = NA, # NA here instead of _blank
+#       download = NA,
+#       shiny::icon("hourglass-start"),
+#       label,
+#       ...
+#     )
+# }
 
 ui_app <- shiny::fluidPage(
 
@@ -25,31 +25,32 @@ ui_app <- shiny::fluidPage(
     #ui_quagga()
     shiny::fluidRow(
       shiny::column(6,
+                    shiny::radioButtons("tplId", "Escoja un dise\u00F1o", list(
+                      "Dise\u00F1o 2x1" = "1",
+                      "Dise\u00f1o 3x1" = "2"
+                    )),
                     shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
                                      ,
                                      accept = c(
                                        "text/csv",
                                        "text/comma-separated-values,text/plain",
                                        ".csv")
-                    ),
+                    )
 
-                    shiny::radioButtons("tplId", "Escoja un dise\u00F1o", list(
-                      "Dise\u00F1o 2x1" = "1",
-                      "Dise\u00f1o 3x1" = "2"
-                    ))
+
       ),
       shiny::column(6,
-                    shiny::actionButton(
-                      "runBtn",
-                      "Procesar archivo",
-                      class = "btn-primary",
-                      icon = shiny::icon("hourglass-start")
+                    # shiny::actionButton(
+                    #   "runBtn",
+                    #   "Procesar archivo",
+                    #   class = "btn-primary",
+                    #   icon = shiny::icon("hourglass-start")
+                    # ),
+                    shiny:: tags$div(id = 'placeholder')
+                    ,
+                    shiny::conditionalPanel(condition = "output.ready",
+                      shiny::downloadButton('downloadData', 'Bajar PDF!')
                     ),
-
-
-
-
-                    downloadButtonEdit('downloadData', 'Bajar'),
 
                     shiny::tags$button(
                       id = 'close',

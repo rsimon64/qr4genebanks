@@ -4,14 +4,11 @@
 \alias{print_label}
 \title{print_label}
 \usage{
-print_label(info, header = c("today", "Recursos Gen&#0233;ticos",
-  "Banco in-vitro"), template = system.file("templates/label1.yaml", package =
+print_label(info, template = system.file("templates/label1.yaml", package =
   "quagga"), tofile = "sample.pdf")
 }
 \arguments{
 \item{info}{data.frame with content for barcode}
-
-\item{header}{vector of three strings which function as header}
 
 \item{template}{path to yaml file with configuration details}
 
