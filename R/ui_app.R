@@ -40,7 +40,7 @@ ui_app <- shiny::fluidPage(
                     shiny::tags$button(
                       id = 'close',
                       type = "button",
-                      class = "btn action-button",
+                      class = "btn action-button btn-primary",
                       #class = "btn-warning",
                       onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
                       "Cerrar applicaci\u00F3n"
