@@ -19,6 +19,8 @@ sv_quagga <- function(input, output, session) {
     FALSE
   })
 
+  tplId <- shiny::reactive({input$tplId})
+
   shiny::outputOptions(output, "ready", suspendWhenHidden = FALSE)
 
 
@@ -26,9 +28,10 @@ sv_quagga <- function(input, output, session) {
 
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 
-      tplFile <- system.file(paste0("templates/label", input$tplId, ".yaml"), package = "quagga")
-      outFile <- paste0(tempdir(), input$csvFile$name, ".label", input$tplId, ".pdf")
-      outName <- paste0(input$csvFile$name, ".label", input$tplId, ".pdf")
+      message(paste("id", tplId()))
+      tplFile <- system.file(paste0("templates/label", tplId(), ".yaml"), package = "quagga")
+      outFile <- paste0(tempdir(), input$csvFile$name, ".label", tplId(), ".pdf")
+      outName <- paste0(input$csvFile$name, ".label", tplId(), ".pdf")
 
       quagga::print_label(csvData(), template = tplFile, tofile = outFile)
 

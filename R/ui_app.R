@@ -21,10 +21,10 @@ ui_app <- shiny::fluidPage(
   shiny::verticalLayout(
     shiny::fluidRow(
       shiny::column(6,
-                    shiny::radioButtons("tplId", "Escoja un dise\u00F1o", list(
+                    shiny::radioButtons("tplId", "Escoja un diseño", list(
                       "Dise\u00F1o 2x1" = "1",
                       "Dise\u00f1o 3x1" = "2"
-                    )),
+                    ), inline = TRUE),
                     shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
                                      ,
                                      accept = c(
@@ -40,7 +40,7 @@ ui_app <- shiny::fluidPage(
                     shiny::tags$button(
                       id = 'close',
                       type = "button",
-                      class = "btn action-button",
+                      class = "btn action-button btn-primary",
                       #class = "btn-warning",
                       onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
                       "Cerrar applicaci\u00F3n"
