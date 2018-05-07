@@ -1,3 +1,19 @@
+downloadButton <- function (outputId, label = "Download", class = NULL, ...)
+{
+  aTag <-
+    shiny::tags$a(
+      id = outputId,
+      class = paste("btn btn-primary shiny-download-link",
+                    class),
+      href = "",
+      target = "_blank", # NA here instead of _blank
+      download = NA,
+      shiny::icon("download"),
+      label,
+      ...
+    )
+}
+
 
 ui_app <- shiny::fluidPage(
   shiny::titlePanel("Imprimir c\u00F3digos de barra"),
@@ -30,7 +46,7 @@ ui_app <- shiny::fluidPage(
                       "Cerrar applicaci\u00F3n"
                     ),
                     shiny::conditionalPanel(condition = "output.ready",
-                                            shiny::downloadButton('downloadData', 'Bajar PDF!')
+                                            downloadButton('downloadData', 'Bajar PDF!')
                     )
       )
       ),
