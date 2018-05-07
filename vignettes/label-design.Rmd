@@ -1,0 +1,100 @@
+---
+title: "Consideraciones en el diseño de etiquetas para código de barras"
+author: "Reinhard Simon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Label Design}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Motivación
+
+Etiquetas con códigos de barra han sido identificados para ser implementados en los laboratorios y estaciones del INIA. Actualmente se cuenta con una impresora semi-industrial de marca Zebra en Lima. Faltan principlamente dos tareas: a) la evaluación de diseños y b) la disponibilidad de un programa en idioma español para generar las etiquetas por personal técnico.
+
+# Criterios
+
+Entre los criterios generales de contenido se establece que las etiquetas deben:
+
+1. identificar un material genético
+2. usar un codigo facilmente legible por lectores 
+3. visualizar información explicita selécta sobre el material
+4. visualizar informacion adicional para facilitar el manejo local del grupo
+
+Entre los criterios generales de diseño se establece:
+
+- Los elementos textuales y graficos deben ser claros para ser leidos rapidamente tanto por maquina como por personas
+- Una estructura común y estandarizado también facilita la lectura y comprensión
+- Los elementos estructurales deben adaptarse a varios formatos de etiquetas
+
+# Buenas prácticas
+
+- En la medida posible se debe usar estándares populares para bajar costos de adquisición y mantenimiento.
+- Se debe usar tecnologías robustas ya que las etiquetas van a ser manipuladas con frecuencia y a veces bajo condiciones duras como en el campo o a temperaturas muy bajas.
+- Las etiquetas también deben ser altamente consistentes entre ellos como una medida de calidad y de imagen institucional.
+- Se identifica el código QR como la tecnología de impresión de ´código de barra´.
+  - Los códigos dos dimensionales (2D) son mas robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar lineas lo cual malogra los codigos de barras de lineas.
+  - También los códigos 2D tienen un mejor sistema interno para asegurar la lectura de contenido a pesar de posibles daños locales.
+  - El código QR es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la acceptación.
+
+# Implementación
+
+Correspondiendo a la tarea a) se definó un diseño basado en cuatro bloques cuadraticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetes disponibles se establecio tambien que por bloque un máximo de cuatro campos son disponibles.
+En mas detalle:
+
+1. Bloque ID (identificación): Corresponde a la cabezera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:
+  - autoridad: mediante un logo
+  - Unidad (p.e. Dirección)
+  - Subunidad (p.e. collección)
+  - fecha de impresión
+  - Código de collección principál
+2. Bloque QR: Contiene todos los datos impresos en forma codificada
+  - Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de collecta y otras observaciones.
+3. Bloque de información mínima estandarizada. Aquí se podra incluir cuatro campos. La idea principal es que seán algo común entre collecciones como
+  - nombre del cultivo
+  - nombre científico
+  - fecha indicativo de edad de materiál (siembra, multiplicación, extracción de ADN, collecta
+de herbario, etc)
+  - proveniencia de materiál (collección, cruze, país, ...)
+4. Bloque información addicionál. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:
+  - Codigo laboratorio o mejorador
+  - Método de preparación de material o medio
+  - Importáncia de materiál: forma parte de una colleción core.
+  - Estado de limpieza fitosanitario
+  - Observaciones
+  - etc.
+
+Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadraticas y semi-rectangulares manteninedo legibilidad y un diseño visual atractivo. En etqiuetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).
+
+Se implemento un algoritmo en R para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo accepta principalmente una tabla con los datos entrantes, datos de cabezera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por materiál genético. Los tres datos de cabezera son configurables al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el logo no cambia y este parametro es solo configurable al nivel de plantilla. La plantilla define varios detalles mas especificos como:
+
+- margen alrededor
+- layout: 2x2, 1x4, 4x1
+- Font
+- Fontface: normál, itálico, grueso, italico-grueso
+- Fontsize
+- Imprimir o no imprimir los nombres de los campos (para mejorar legibilidad en etiquetas chicas y/o ahorrar tinta)
+- Espacio entre campos: 1 o 2
+- otros en evaluación
+
+Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.
+
+# Pendientes
+
+La proxima semana estaremos evaluando con Luis Guerra la conexion a la impresora Zebra. Espero que se pueda establecer una conexion directa desde R lo cual facilitaría la implementación de una aplicación basado en el algoritmo implementado. 
+
+Si no habrá que evaluar otras dos opciones mas: a) usando el programa de diseño de etiquetas de Zebra, y b) usando un idioma de programación de las impresoras Zebras. Los dos otros opciones implicarán trabajo y tiempo de investigación de formatos adicional.
+
+En todo caso sera bueno de avanzar en la revisión de diseño y compilar un listado de plantillas con sus detalles que se va necesitar. 
+
+En caso que logramos la conexión entre impresora Zebra y R procederé con la tarea b) es decir la implementación de un interfacio simple y gráfico. 
+
+

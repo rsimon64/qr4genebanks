@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Reinhard Simon" />
+
+<meta name="date" content="2018-05-04" />
+
+<title>Consideraciones en el diseño de etiquetas para código de barras</title>
+
+
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#header {
+text-align: center;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Consideraciones en el diseño de etiquetas para código de barras</h1>
+<h4 class="author"><em>Reinhard Simon</em></h4>
+<h4 class="date"><em>2018-05-04</em></h4>
+
+
+
+<div id="motivacion" class="section level1">
+<h1>Motivación</h1>
+<p>Etiquetas con códigos de barra han sido identificados para ser implementados en los laboratorios y estaciones del INIA. Actualmente se cuenta con una impresora semi-industrial de marca Zebra en Lima. Faltan principlamente dos tareas: a) la evaluación de diseños y b) la disponibilidad de un programa en idioma español para generar las etiquetas por personal técnico.</p>
+</div>
+<div id="criterios" class="section level1">
+<h1>Criterios</h1>
+<p>Entre los criterios generales de contenido se establece que las etiquetas deben:</p>
+<ol style="list-style-type: decimal">
+<li>identificar un material genético</li>
+<li>usar un codigo facilmente legible por lectores</li>
+<li>visualizar información explicita selécta sobre el material</li>
+<li>visualizar informacion adicional para facilitar el manejo local del grupo</li>
+</ol>
+<p>Entre los criterios generales de diseño se establece:</p>
+<ul>
+<li>Los elementos textuales y graficos deben ser claros para ser leidos rapidamente tanto por maquina como por personas</li>
+<li>Una estructura común y estandarizado también facilita la lectura y comprensión</li>
+<li>Los elementos estructurales deben adaptarse a varios formatos de etiquetas</li>
+</ul>
+</div>
+<div id="buenas-practicas" class="section level1">
+<h1>Buenas prácticas</h1>
+<ul>
+<li>En la medida posible se debe usar estándares populares para bajar costos de adquisición y mantenimiento.</li>
+<li>Se debe usar tecnologías robustas ya que las etiquetas van a ser manipuladas con frecuencia y a veces bajo condiciones duras como en el campo o a temperaturas muy bajas.</li>
+<li>Las etiquetas también deben ser altamente consistentes entre ellos como una medida de calidad y de imagen institucional.</li>
+<li>Se identifica el código QR como la tecnología de impresión de ´código de barra´.
+<ul>
+<li>Los códigos dos dimensionales (2D) son mas robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar lineas lo cual malogra los codigos de barras de lineas.</li>
+<li>También los códigos 2D tienen un mejor sistema interno para asegurar la lectura de contenido a pesar de posibles daños locales.</li>
+<li>El código QR es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la acceptación.</li>
+</ul></li>
+</ul>
+</div>
+<div id="implementacion" class="section level1">
+<h1>Implementación</h1>
+<p>Correspondiendo a la tarea a) se definó un diseño basado en cuatro bloques cuadraticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetes disponibles se establecio tambien que por bloque un máximo de cuatro campos son disponibles. En mas detalle:</p>
+<ol style="list-style-type: decimal">
+<li>Bloque ID (identificación): Corresponde a la cabezera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:</li>
+</ol>
+<ul>
+<li>autoridad: mediante un logo</li>
+<li>Unidad (p.e. Dirección)</li>
+<li>Subunidad (p.e. collección)</li>
+<li>fecha de impresión</li>
+<li>Código de collección principál</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li>Bloque QR: Contiene todos los datos impresos en forma codificada</li>
+</ol>
+<ul>
+<li>Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de collecta y otras observaciones.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Bloque de información mínima estandarizada. Aquí se podra incluir cuatro campos. La idea principal es que seán algo común entre collecciones como</li>
+</ol>
+<ul>
+<li>nombre del cultivo</li>
+<li>nombre científico</li>
+<li>fecha indicativo de edad de materiál (siembra, multiplicación, extracción de ADN, collecta de herbario, etc)</li>
+<li>proveniencia de materiál (collección, cruze, país, …)</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Bloque información addicionál. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:</li>
+</ol>
+<ul>
+<li>Codigo laboratorio o mejorador</li>
+<li>Método de preparación de material o medio</li>
+<li>Importáncia de materiál: forma parte de una colleción core.</li>
+<li>Estado de limpieza fitosanitario</li>
+<li>Observaciones</li>
+<li>etc.</li>
+</ul>
+<p>Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadraticas y semi-rectangulares manteninedo legibilidad y un diseño visual atractivo. En etqiuetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).</p>
+<p>Se implemento un algoritmo en R para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo accepta principalmente una tabla con los datos entrantes, datos de cabezera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por materiál genético. Los tres datos de cabezera son configurables al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el logo no cambia y este parametro es solo configurable al nivel de plantilla. La plantilla define varios detalles mas especificos como:</p>
+<ul>
+<li>margen alrededor</li>
+<li>layout: 2x2, 1x4, 4x1</li>
+<li>Font</li>
+<li>Fontface: normál, itálico, grueso, italico-grueso</li>
+<li>Fontsize</li>
+<li>Imprimir o no imprimir los nombres de los campos (para mejorar legibilidad en etiquetas chicas y/o ahorrar tinta)</li>
+<li>Espacio entre campos: 1 o 2</li>
+<li>otros en evaluación</li>
+</ul>
+<p>Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.</p>
+</div>
+<div id="pendientes" class="section level1">
+<h1>Pendientes</h1>
+<p>La proxima semana estaremos evaluando con Luis Guerra la conexion a la impresora Zebra. Espero que se pueda establecer una conexion directa desde R lo cual facilitaría la implementación de una aplicación basado en el algoritmo implementado.</p>
+<p>Si no habrá que evaluar otras dos opciones mas: a) usando el programa de diseño de etiquetas de Zebra, y b) usando un idioma de programación de las impresoras Zebras. Los dos otros opciones implicarán trabajo y tiempo de investigación de formatos adicional.</p>
+<p>En todo caso sera bueno de avanzar en la revisión de diseño y compilar un listado de plantillas con sus detalles que se va necesitar.</p>
+<p>En caso que logramos la conexión entre impresora Zebra y R procederé con la tarea b) es decir la implementación de un interfacio simple y gráfico.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
