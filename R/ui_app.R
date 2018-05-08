@@ -1,5 +1,4 @@
-downloadButton <- function (outputId, label = "Download", class = NULL, ...)
-{
+downloadButton <- function (outputId, label = "Download", class = NULL, ...) {
   aTag <-
     shiny::tags$a(
       id = outputId,
@@ -14,49 +13,56 @@ downloadButton <- function (outputId, label = "Download", class = NULL, ...)
     )
 }
 
-
-ui_app <- shiny::fluidPage(
-  shiny::titlePanel("Imprimir c\u00F3digos de barra"),
-
-  shiny::verticalLayout(
-    shiny::fluidRow(
-      shiny::column(6,
-                    shiny::radioButtons("tplId", "Escoja un diseño", list(
-                      "Dise\u00F1o 2x1" = "1",
-                      "Dise\u00f1o 3x1" = "2"
-                    ), inline = TRUE),
-                    shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
-                                     ,
-                                     accept = c(
-                                       "text/csv",
-                                       "text/comma-separated-values,text/plain",
-                                       ".csv")
-                    )
-
-
-      ),
-      shiny::column(6,
-
-                    shiny::tags$button(
-                      id = 'close',
-                      type = "button",
-                      class = "btn action-button btn-primary",
-                      #class = "btn-warning",
-                      onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
-                      "Cerrar applicaci\u00F3n"
-                    ),
-                    shiny::conditionalPanel(condition = "output.ready",
-                                            downloadButton('downloadData', 'Bajar PDF!')
-                    )
-      )
-      ),
-    shiny::fluidRow(
-      shiny::column(12,
-      shiny::tags$hr(),
-      shiny::tableOutput("contents")
-      )
-    )
-
-  )
-
+header <- shinydashboard::dashboardHeader(
+  titleWidth = 300,
+  title = "Imprimir C\u00F3digos de Barra"
 )
+
+sidebar <- shinydashboard::dashboardSidebar(width = 300,
+  shiny::radioButtons("tplId", "Escoja un dise\U00f!o", list(
+    "Dise\u00F1o 2x1" = "1",
+    "Dise\u00f1o 3x1" = "2"
+  ), inline = TRUE),
+  shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
+                   ,
+                   accept = c(
+                     "text/csv",
+                     "text/comma-separated-values,text/plain",
+                     ".csv")
+  ),
+  shiny::tags$button(
+    id = 'close',
+    class = "btn action-button btn-primary",
+    shiny::icon("power-off"),
+    onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
+    "Cerrar applicaci\u00F3n"
+  )
+)
+
+
+body <- shinydashboard::dashboardBody(
+    shiny::fluidRow(
+
+      shiny::column(12,
+                    shinydashboard::box(width = NULL, status = "success",
+                      shiny::p("Mostrando un m\U00e1ximo de seis filas de la tabla."),
+                      shiny::br(),
+                      shiny::tableOutput("contents"),
+                      shiny::conditionalPanel(condition = "output.ready",
+                                              downloadButton('downloadData', 'Bajar PDF!')
+                      )
+                    )
+
+      )
+      )
+)
+
+
+ui_app <- shinydashboard::dashboardPage(skin = "green",
+  header,
+  #shinydashboard::dashboardSidebar(disable = TRUE),
+  sidebar,
+  body
+)
+
+
