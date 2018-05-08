@@ -28,7 +28,7 @@ sv_quagga <- function(input, output, session) {
 
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 
-      message(paste("id", tplId()))
+      #message(paste("id", tplId()))
       tplFile <- system.file(paste0("templates/label", tplId(), ".yaml"), package = "quagga")
       outFile <- paste0(tempdir(), input$csvFile$name, ".label", tplId(), ".pdf")
       outName <- paste0(input$csvFile$name, ".label", tplId(), ".pdf")
