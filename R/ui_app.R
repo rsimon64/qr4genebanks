@@ -40,22 +40,49 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
 )
 
 
+card <- function(..., title = NULL, icon = shiny::icon("info"),
+                  footer = NULL,
+                 background = NULL, width = 3, height = NULL) {
+  #title <- shiny::HTML(paste0("<i class='fa fa-info'></i>&nbsp;",title,""))
+  title <- shiny::HTML(paste0(as.character(icon), "&nbsp;", title,""))
+
+  shinydashboard::box(..., title = title, footer = footer, status = "info",
+                      style = "box-shadow: 0 8px 16px 0 rgba(0,0,0,0.3);transition: 0.3s;
+                      border-radius: 5px;",
+                      solidHeader = FALSE, background = background, width = width, height = height,
+                      collapsible = FALSE, collapsed = FALSE)
+}
+
+
 body <- shinydashboard::dashboardBody(
     shiny::fluidRow(
 
       shiny::column(12,
-                    shinydashboard::box(width = NULL, status = "success",
-                      shiny::p("Mostrando un m\U00e1ximo de seis filas de la tabla."),
-                      shiny::p("- La tabla debe consistir actualmente de seis a nueve columnas."),
+
+                    card(
+                      #shiny::p("Mostrando un m\U00e1ximo de seis filas de la tabla."),
+                      shiny::p("- La tabla debe tener de seis a nueve columnas."),
                       shiny::p("- La primera columna debe contener el c\u00F3digo de identificaci\u00F3n."),
                       shiny::p("- Las columnas dos a cinco deben contener informaci\u00F3n del primer bloque."),
                       shiny::p("- Las columnas seis a nueve deben contener informaci\u00F3n del segundo bloque."),
-                      shiny::p("- El segundo bloque puede tener entre una a cuatro columnas."),
-                      shiny::br(),
-                      shiny::tableOutput("contents"),
-                      shiny::conditionalPanel(condition = "output.ready",
-                                              downloadButton('downloadData', 'Bajar PDF!')
-                      )
+                      shiny::p("- El segundo bloque puede tener entre una a cuatro columnas.")
+                    ),
+                    # shinydashboard::box(width = 3, status = "info",
+                    #   shiny::p("Mostrando un m\U00e1ximo de seis filas de la tabla."),
+                    #   shiny::p("- La tabla debe consistir actualmente de seis a nueve columnas."),
+                    #   shiny::p("- La primera columna debe contener el c\u00F3digo de identificaci\u00F3n."),
+                    #   shiny::p("- Las columnas dos a cinco deben contener informaci\u00F3n del primer bloque."),
+                    #   shiny::p("- Las columnas seis a nueve deben contener informaci\u00F3n del segundo bloque."),
+                    #   shiny::p("- El segundo bloque puede tener entre una a cuatro columnas.")
+                    #   ),
+
+                    #shinydashboard::box(width = 9, status = "success",
+                    card(width = 9, icon = NULL,
+                       title = "Mostrando un m\U00e1ximo de seis filas de la tabla.",
+                       shiny::tableOutput("contents"),
+                       shiny::conditionalPanel(condition = "output.ready",
+                                               downloadButton('downloadData', 'Bajar PDF!')
+                       )
                     )
 
       )
