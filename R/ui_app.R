@@ -19,11 +19,11 @@ header <- shinydashboard::dashboardHeader(
 )
 
 sidebar <- shinydashboard::dashboardSidebar(width = 300,
-  shiny::radioButtons("tplId", "Escoja un dise\U00f!o", list(
+  shiny::radioButtons("tplId", "Escoja un dise\U00F1o", list(
     "Dise\u00F1o 2x1" = "1",
     "Dise\u00f1o 3x1" = "2"
   ), inline = TRUE),
-  shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
+  shiny::fileInput("csvFile", "Escoger el archivo de datos a imprimir"
                    , buttonLabel = "Navegar ...",
                    accept = c(
                      "text/csv",
