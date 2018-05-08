@@ -50,7 +50,7 @@ body <- shinydashboard::dashboardBody(
                       shiny::p("- La primera columna debe contener el c\u00F3digo de identificaci\u00F3n."),
                       shiny::p("- Las columnas dos a cinco deben contener informaci\u00F3n del primer bloque."),
                       shiny::p("- Las columnas seis a nueve deben contener informaci\u00F3n del segundo bloque."),
-                      shiny::p("- Ell segundo bloque puede tener entre una a cuatro columnas."),
+                      shiny::p("- El segundo bloque puede tener entre una a cuatro columnas."),
                       shiny::br(),
                       shiny::tableOutput("contents"),
                       shiny::conditionalPanel(condition = "output.ready",
