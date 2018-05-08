@@ -24,7 +24,7 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
     "Dise\u00f1o 3x1" = "2"
   ), inline = TRUE),
   shiny::fileInput("csvFile", "Escoja el archivo de datos a imprimir"
-                   ,
+                   , buttonLabel = "Navegar ...",
                    accept = c(
                      "text/csv",
                      "text/comma-separated-values,text/plain",
@@ -46,6 +46,11 @@ body <- shinydashboard::dashboardBody(
       shiny::column(12,
                     shinydashboard::box(width = NULL, status = "success",
                       shiny::p("Mostrando un m\U00e1ximo de seis filas de la tabla."),
+                      shiny::p("- La tabla debe consistir actualmente de seis a nueve columnas."),
+                      shiny::p("- La primera columna debe contener el c\u00F3digo de identificaci\u00F3n."),
+                      shiny::p("- Las columnas dos a cinco deben contener informaci\u00F3n del primer bloque."),
+                      shiny::p("- Las columnas seis a nueve deben contener informaci\u00F3n del segundo bloque."),
+                      shiny::p("- Ell segundo bloque puede tener entre una a cuatro columnas."),
                       shiny::br(),
                       shiny::tableOutput("contents"),
                       shiny::conditionalPanel(condition = "output.ready",
