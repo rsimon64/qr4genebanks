@@ -67,7 +67,6 @@ body <- shinydashboard::dashboardBody(
 
 ui_app <- shinydashboard::dashboardPage(skin = "green",
   header,
-  #shinydashboard::dashboardSidebar(disable = TRUE),
   sidebar,
   body
 )
