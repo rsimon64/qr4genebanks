@@ -16,13 +16,15 @@
 #'
 run_quagga <- function(port = 9866) {
 
-  shiny::shinyApp(
-    ui = ui_app,
-    server = sv_app,
-    options = list(
-      port = port,
-      launch.browser = TRUE
-    )
-  )
+  # shiny::shinyApp(
+  #   ui = ui_app,
+  #   server = sv_app,
+  #   options = list(
+  #     port = port,
+  #     launch.browser = TRUE
+  #   )
+  # )
+
+  shiny::runApp(system.file("apps", package = "quagga"), port = port)
 
 }
