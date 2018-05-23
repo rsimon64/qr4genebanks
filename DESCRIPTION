@@ -12,5 +12,5 @@ Imports: graphics, imager, qrencoder, yaml, shiny, raster, shinydashboard, shiny
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
-Remotes: rsimon64/shinycards
+Remotes: rsimon64/shinycards, rsimon64/shinyware
 RoxygenNote: 6.0.1
