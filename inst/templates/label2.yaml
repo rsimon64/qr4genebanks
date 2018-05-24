@@ -7,7 +7,7 @@ format: pdf
 width: 33
 height: 31
 columns: 3
-fontfamily: Helvetica
+fontfamily: Palatino
 fontface_data: 3
 fieldnames: false
 pointsize: 6
