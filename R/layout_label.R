@@ -27,8 +27,9 @@ layout_label <- function(i, header, info, tpl) {
 
   blc1 <- rec[c(2:5)]
   blc1n<- names(info[i, c(2:5)])
-  blc2 <- rec[c(6:7)]
-  blc2n<- names(info[i, c(6:7)])
+  mx <- ncol(rec)
+  blc2 <- rec[c(6:mx)]
+  blc2n<- names(info[i, c(6:mx)])
 
   txtq <- paste(top4)
 
@@ -94,7 +95,7 @@ layout_label <- function(i, header, info, tpl) {
       blc2 <- paste0("", blc2)
     }
 
-    graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
+    graphics::legend(tpl$block_info$x_pos - 1, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
            legend = paste0("", blc2, spacer), text.font = tpl$fontface_data,
            bty = "n")
   }
