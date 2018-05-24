@@ -80,7 +80,7 @@ layout_label <- function(i, header, info, tpl) {
     }
 
     graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos - 1.15  + .1 * tpl$spacer + tpl$spacer/2,
-           legend = paste0(blc1, spacer), text.font = tpl$fontface_data,
+           legend = paste0(" ", blc1, spacer), text.font = tpl$fontface_data,
            bty = "n")
 
   }
@@ -89,13 +89,13 @@ layout_label <- function(i, header, info, tpl) {
     empty_plot(max_lines)
     if (tpl$fieldnames) {
       graphics::legend(tpl$block_info_optional$x_pos, tpl$block_info_optional$y_pos  + tpl$spacer/2 -.15,
-             legend = paste0(blc2n, spacer),
+             legend = paste0(" ", blc2n, spacer),
              bty = "n")
-      blc2 <- paste0(" ", blc2)
+      blc2 <- paste0("", blc2)
     }
 
     graphics::legend(tpl$block_info$x_pos, tpl$block_info$y_pos  - 1.15 + .1 * tpl$spacer + tpl$spacer/2,
-           legend = paste0(blc2, spacer), text.font = tpl$fontface_data,
+           legend = paste0("", blc2, spacer), text.font = tpl$fontface_data,
            bty = "n")
   }
 
