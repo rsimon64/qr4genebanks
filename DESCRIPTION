@@ -9,8 +9,13 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: graphics, imager, qrencoder, yaml, shiny, raster, shinydashboard, shinycards, shinyware
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    covr,
+    spelling,
+    testthat
 VignetteBuilder: knitr
 Remotes: rsimon64/shinycards, rsimon64/shinyware
 RoxygenNote: 6.1.1
+Language: en-US

@@ -1,3 +1,10 @@
+^docs$
+^_pkgdown\.yml$
+^codecov\.yml$
+^\.travis\.yml$
+^appveyor\.yml$
+^CODE_OF_CONDUCT\.md$
+^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^.*\.doc
