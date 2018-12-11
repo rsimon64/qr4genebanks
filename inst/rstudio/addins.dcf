@@ -1,4 +1,4 @@
-Name: Imprimir etiquetas
+Name: Print QR labels
 Description: Imprimir etiquetas
 Binding: run_qr4genebanks
 Interactive: true
