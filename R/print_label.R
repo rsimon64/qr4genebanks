@@ -41,7 +41,7 @@ print_label <- function(info,
                         #            "Recursos Geneticos",
                         #            "Banco in-vitro"),
                         template = system.file("templates/label1.yaml",
-                                               package = "quagga"),
+                                               package = "qr4genebanks"),
                         tofile = "sample.pdf") {
 
   mm_to_inch <- 0.0393701

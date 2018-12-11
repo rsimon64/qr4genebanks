@@ -1,4 +1,4 @@
-ui_quagga <- function() {
+ui_qr4genebanks <- function() {
 
   #ui <- shiny::fluidRow(
     # shiny::column(6,

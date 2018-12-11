@@ -1,4 +1,4 @@
-#' run_quagga
+#' run_qr4genebanks
 #'
 #' Runs a shiny app to print QR labels
 #'
@@ -14,7 +14,7 @@
 #'    quagga::run_quagga()
 #' }
 #'
-run_quagga <- function(port = 9866) {
+run_qr4genebanks <- function(port = 9866) {
 
   # shiny::shinyApp(
   #   ui = ui_app,
@@ -25,6 +25,6 @@ run_quagga <- function(port = 9866) {
   #   )
   # )
 
-  shiny::runApp(system.file("apps", package = "quagga"), port = port)
+  shiny::runApp(system.file("apps", package = "qr4genebanks"), port = port)
 
 }

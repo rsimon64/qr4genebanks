@@ -46,7 +46,7 @@ layout_label <- function(i, header, info, tpl) {
     if(!file.exists(logo_path)) {
       logo_path <- system.file(
                     file.path("templates", logo_path),
-                    package = "quagga")
+                    package = "qr4genebanks")
     }
     if(file.exists(logo_path)) {
       img <- imager::load.image(logo_path)

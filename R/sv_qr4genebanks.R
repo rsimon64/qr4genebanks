@@ -1,4 +1,4 @@
-sv_quagga <- function(input, output, session) {
+sv_qr4genebanks <- function(input, output, session) {
 
   inFile <- shiny::reactive({
     input$csvFile
@@ -29,11 +29,11 @@ sv_quagga <- function(input, output, session) {
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 
       #message(paste("id", tplId()))
-      tplFile <- system.file(paste0("templates/label", tplId(), ".yaml"), package = "quagga")
+      tplFile <- system.file(paste0("templates/label", tplId(), ".yaml"), package = "qr4genebanks")
       outFile <- paste0(tempdir(), input$csvFile$name, ".label", tplId(), ".pdf")
       outName <- paste0(input$csvFile$name, ".label", tplId(), ".pdf")
 
-      quagga::print_label(csvData(), template = tplFile, tofile = outFile)
+      qr4genebanks::print_label(csvData(), template = tplFile, tofile = outFile)
 
       output$ready <- shiny::reactive({TRUE})
 

@@ -4,8 +4,8 @@
 \alias{print_label}
 \title{print_label}
 \usage{
-print_label(info, template = system.file("templates/label1.yaml", package =
-  "quagga"), tofile = "sample.pdf")
+print_label(info, template = system.file("templates/label1.yaml", package
+  = "qr4genebanks"), tofile = "sample.pdf")
 }
 \arguments{
 \item{info}{data.frame with content for barcode}

@@ -19,23 +19,23 @@ header1 <- sw_dashboardHeader("Imprimir Códigos de Barra en QR", logo = "inia.j
 )
 
 
-quagga:::sidebar
+qr4genebanks:::sidebar
 
 
 
 body <- shinydashboard::dashboardBody(
-  quagga:::ui_quagga()
+  qr4genebanks:::ui_qr4genebanks()
 )
 
 ui_app <- shinydashboard::dashboardPage(
-  skin = "green", header1, quagga:::sidebar, quagga:::body
+  skin = "green", header1, qr4genebanks:::sidebar, qr4genebanks:::body
 )
 
 
 
 
 sv_app <- function(input, output, session) {
-  quagga:::sv_quagga(input, output, session)
+  qr4genebanks:::sv_qr4genebanks(input, output, session)
 
   session$onSessionEnded(function() {
     shiny::stopApp()
