@@ -4,11 +4,11 @@ Version: 0.0.4
 Authors@R: person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre"))
 Description: Creates QR codes for a set of items given a data.frame and a template.
 DRGBView: tracking, labeling
-Depends: R (>= 3.4.4)
+Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: graphics, imager, qrencoder, yaml, shiny, raster, shinydashboard, shinycards, shinyware
+Imports: graphics, imager, qrencoder, yaml, raster
 Suggests: 
     knitr,
     rmarkdown,
@@ -16,6 +16,7 @@ Suggests:
     spelling,
     testthat
 VignetteBuilder: knitr
-Remotes: rsimon64/shinycards, rsimon64/shinyware
 RoxygenNote: 6.1.1
 Language: en-US
+URL: https://github.com/rsimon64/qr4genebanks
+BugReports: https://github.com/rsimon64/qr4genebanks/issues

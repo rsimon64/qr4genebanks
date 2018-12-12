@@ -38,13 +38,14 @@ Optional info block
 \examples{
 
 if (interactive()) {
-info <- read.csv(
-  system.file("/samples/invitro.csv", package = "quagga"),
-  stringsAsFactors = FALSE)
-print_label(info,
- header = c("Recursos Genéticos", "Banco in-vitro", "today"),
- template = "inst/templates/label1.yaml",
- tofile = "label1.pdf" )
+  info <- read.csv(
+    system.file("/samples/invitro.csv", package = "qr4genebanks"),
+    stringsAsFactors = FALSE
+  )
+  print_label(info,
+    header = c("Recursos Genéticos", "Banco in-vitro", "today"),
+    template = "inst/templates/label1.yaml",
+    tofile = "label1.pdf"
+  )
 }
-
 }
