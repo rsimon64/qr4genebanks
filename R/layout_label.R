@@ -35,16 +35,7 @@ layout_label <- function(i, header, info, tpl) {
   blc2 <- rec[c(6:mx)]
   blc2n <- names(info[i, c(6:mx)])
 
-  txtq <- paste(top4)
-
-  if (!tpl$block_QR$only_id) {
-    txtq <- paste(
-      top1, top2, top3, top4,
-      paste0(blc1n, " ", blc1),
-      paste0(blc2n, " ", blc2)
-    )
-  }
-
+  txtq <- paste0(rec$ID)
 
   do_block_ID <- function() {
     empty_plot(max_lines)
@@ -77,7 +68,8 @@ layout_label <- function(i, header, info, tpl) {
   }
 
   do_block_QR <- function() {
-    # essage(txtq)
+    # message(txtq)
+    txtq <- txtq[1]
     raster::image(
       qrencoder::qrencode_raster(txtq),
       asp = 1, col = c("white", "black"),

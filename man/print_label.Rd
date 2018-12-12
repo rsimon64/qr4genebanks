@@ -4,8 +4,10 @@
 \alias{print_label}
 \title{print_label}
 \usage{
-print_label(info, template = system.file("templates/label1.yaml", package
-  = "qr4genebanks"), tofile = "sample.pdf")
+print_label(info = utils::read.csv(system.file("samples/invitro.csv",
+  package = "qr4genebanks")),
+  template = system.file("templates/label1.yaml", package =
+  "qr4genebanks"), tofile = "sample.pdf")
 }
 \arguments{
 \item{info}{data.frame with content for barcode}
@@ -38,14 +40,6 @@ Optional info block
 \examples{
 
 if (interactive()) {
-  info <- read.csv(
-    system.file("/samples/invitro.csv", package = "qr4genebanks"),
-    stringsAsFactors = FALSE
-  )
-  print_label(info,
-    header = c("Recursos Genéticos", "Banco in-vitro", "today"),
-    template = "inst/templates/label1.yaml",
-    tofile = "label1.pdf"
-  )
+  print_label()
 }
 }

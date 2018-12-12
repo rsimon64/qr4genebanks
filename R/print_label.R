@@ -1,4 +1,3 @@
-
 #' print_label
 #'
 #' Creates a PDF file with barcoded labels given a data.frame,
@@ -27,24 +26,18 @@
 #' @examples
 #'
 #' if (interactive()) {
-#'   info <- read.csv(
-#'     system.file("/samples/invitro.csv", package = "qr4genebanks"),
-#'     stringsAsFactors = FALSE
-#'   )
-#'   print_label(info,
-#'     header = c("Recursos Genéticos", "Banco in-vitro", "today"),
-#'     template = "inst/templates/label1.yaml",
-#'     tofile = "label1.pdf"
-#'   )
+#'   print_label()
 #' }
-print_label <- function(info,
-                        # header = c("today",
-                        #            "Recursos Geneticos",
-                        #            "Banco in-vitro"),
+print_label <- function(info = utils::read.csv(
+                                system.file("samples/invitro.csv",
+                                           package = "qr4genebanks")
+                        ),
                         template = system.file("templates/label1.yaml",
                           package = "qr4genebanks"
                         ),
                         tofile = "sample.pdf") {
+  stopifnot(is.data.frame(info))
+  stopifnot(nrow(info) > 0)
   mm_to_inch <- 0.0393701
   tpl <- yaml::yaml.load_file(template)
 

@@ -19,7 +19,7 @@ spacer: 1
 block_ID:
   position: 0
   logo:
-    path: "inia2.png"
+    path: "logo.png"
     bl_x: 1
     bl_y: 5
     tr_x: 11

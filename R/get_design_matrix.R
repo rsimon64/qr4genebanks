@@ -1,4 +1,6 @@
 get_design_matrix <- function(labels_per_row = 2) {
+  stopifnot(is.numeric(labels_per_row))
+  stopifnot(0 < labels_per_row & labels_per_row < 5)
   # numbers within matrix indicate order of sub-plots or boxes
   switch(labels_per_row,
     "1" = matrix(c(
