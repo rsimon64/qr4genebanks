@@ -39,10 +39,11 @@ layout_label <- function(i, header, info, tpl) {
   do_block_ID <- function() {
     empty_plot(max_lines)
     logo_path <- tpl$block_ID$logo$path
-    if (!file.exists(logo_path)) {
+
+    if (logo_path == "x.png") {
       message("Logo file not found.")
       logo_path <- system.file(
-        file.path("templates", "logo.png"),
+        file.path("templates", logo_path),
         package = "qr4genebanks"
       )
     }

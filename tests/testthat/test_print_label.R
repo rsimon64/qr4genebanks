@@ -26,7 +26,7 @@ test_that("Return types work", {
   })
 
   expect_true({
-    file.size(res) == 45910
+    file.size(res) == 15206
   })
 
   unlink(res)

@@ -5,7 +5,7 @@
 \title{print_labels}
 \usage{
 print_label(info = utils::read.csv(system.file("samples/invitro.csv",
-  package = "qr4genebanks")),
+  package = "qr4genebanks"), stringsAsFactors = FALSE),
   template = system.file("templates/label1.yaml", package =
   "qr4genebanks"), to_file = "sample.pdf")
 }

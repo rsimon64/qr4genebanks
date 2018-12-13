@@ -31,7 +31,7 @@
 print_label <- function(info = utils::read.csv(
                           system.file("samples/invitro.csv",
                             package = "qr4genebanks"
-                          )
+                          ), stringsAsFactors = FALSE
                         ),
                         template = system.file("templates/label1.yaml",
                           package = "qr4genebanks"
