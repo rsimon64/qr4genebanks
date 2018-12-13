@@ -1,12 +1,12 @@
-ID,Species,Name,Subcultivo,Medio,Codigo lab,Estado limipieza
-Per12345567880,U. tuberosum,Ulluco,01/01/2018,novedoso,lab12345,ok
+ID,Species,Name,SubCulture,Medium,LabCode,CleaningStage
+Per12345567880,U. tuberosum,Ulluco,01/01/2018,new,lab12345,ok
 Per12345567881,U. tuberosum,Ulluco,02/01/2018,novedoso,lab12346,no
-Per12345567882,U. tuberosum,Ulluco,03/01/2018,normal,lab12347,no
-Per12345567883,U. tuberosum,Ulluco,04/01/2018,novedoso,lab12348,ok
+Per12345567882,U. tuberosum,Ulluco,03/01/2018,new,lab12347,no
+Per12345567883,U. tuberosum,Ulluco,04/01/2018,new,lab12348,ok
 Per12345567884,U. tuberosum,Ulluco,05/01/2018,normal,lab12349,ok
 Per12345567885,U. tuberosum,Ulluco,06/01/2018,normal,lab12350,no
-Per12345567886,U. tuberosum,Ulluco,07/01/2018,novedoso,lab12351,ok
-Per12345567887,U. tuberosum,Ulluco,08/01/2018,novedoso,lab12352,ok
-Per12345567888,U. tuberosum,Ulluco,09/01/2018,novedoso,lab12353,ok
+Per12345567886,U. tuberosum,Ulluco,07/01/2018,new,lab12351,ok
+Per12345567887,U. tuberosum,Ulluco,08/01/2018,new,lab12352,ok
+Per12345567888,U. tuberosum,Ulluco,09/01/2018,new,lab12353,ok
 Per12345567889,U. tuberosum,Ulluco,10/01/2018,normal,lab12354,no
-Per12345567890,U. tuberosum,Ulluco,11/01/2018,novedoso,lab12355,ok
+Per12345567890,U. tuberosum,Ulluco,11/01/2018,new,lab12355,ok
