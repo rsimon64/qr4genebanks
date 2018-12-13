@@ -1,8 +1,9 @@
 context("print_label")
 
-res <- tempfile(fileext = ".pdf")
+res <- tempfile(fileext = ".pdf", pattern = "Label_")
 
 test_that("parameter type and range is ok", {
+  skip_on_cran()
   expect_error({
     print_label("", tofile = res)
   })
@@ -12,13 +13,13 @@ test_that("parameter type and range is ok", {
                   system.file("templates/label1_no_logo.yaml",
                                        package = "qr4genebanks"
     ), to_file = res)
-  },regexp = "Logo file not found.")
+  }, regexp = "Logo file not found.")
 })
 
 test_that("Return types work", {
-  # skip_on_cran()
+  skip_on_cran()
 
-  print_label(to?file = res)
+  print_label(to_file = res)
 
   expect_true({
     file.exists(res)
@@ -27,6 +28,8 @@ test_that("Return types work", {
   expect_true({
     file.size(res) == 45910
   })
+
+  unlink(res)
 
 })
 

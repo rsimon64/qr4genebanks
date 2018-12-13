@@ -1,6 +1,5 @@
 layout_label <- function(i, header, info, tpl) {
 
-  # requireNamespace(qrencoder)
   family <- tpl$fontfamily
   max_lines <- as.numeric(tpl$lines)
 
@@ -41,11 +40,13 @@ layout_label <- function(i, header, info, tpl) {
     empty_plot(max_lines)
     logo_path <- tpl$block_ID$logo$path
     if (!file.exists(logo_path)) {
+      message("Logo file not found.")
       logo_path <- system.file(
-        file.path("templates", logo_path),
+        file.path("templates", "logo.png"),
         package = "qr4genebanks"
       )
     }
+
     if (file.exists(logo_path)) {
       img <- imager::load.image(logo_path)
       graphics::rasterImage(
@@ -53,9 +54,8 @@ layout_label <- function(i, header, info, tpl) {
         tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
         tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y
       )
-    } else {
-      message("Logo file not found.")
     }
+
 
     graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0,
                    label = top1, family = family)
