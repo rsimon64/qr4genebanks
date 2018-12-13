@@ -11,7 +11,15 @@ status](https://travis-ci.org/rsimon64/qr4genebanks.svg?branch=master)](https://
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
-The goal of qr4genebanks is to …
+The goal of qr4genebanks is to provide simple tools to print
+2-dimensional bar-codes in the popular QR format for plant collection
+genebanks. The package has currently only one function that expects a
+table containing the information to be printed with one row per label.
+
+Label designs are available for a few standard label sizes and are
+created in PDF format. The PDF file can then be sent to the label
+printer over the intranet. The designs are based on four square blocks
+that can be arranged in rows and columns.
 
 ## Installation
 
@@ -23,3 +31,9 @@ install.packages("qr4genebanks")
 ```
 
 ## Example
+
+The following code will create a [sample](sample.pdf) file.
+
+``` r
+qr4genebanks::print_label()
+```
