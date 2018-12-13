@@ -27,7 +27,8 @@ You can install the released version of qr4genebanks from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("qr4genebanks")
+# install.packages("devtools")
+devtools::install_github("rsimon64/qr4genebanks")
 ```
 
 ## Example
@@ -37,3 +38,17 @@ The following code will create a [sample](sample.pdf) file.
 ``` r
 qr4genebanks::print_label()
 ```
+
+## Configuration
+
+The label ayouts can be configured through yaml files. There are four
+examples for different label types (small square, medium square, large
+rectangular) reflecting typical use cases in a plant genebank (DNA
+storage, in-vitro cultures, field collection respectively).
+
+One block is reserved for including a raster image typically used for a
+logo of the lab or institute.
+
+The QR image itself stores in this version just the main identifier.
+
+More information can be found in the tutorial.
