@@ -1,4 +1,4 @@
-#' print_label
+#' print_labels
 #'
 #' Creates a PDF file with barcoded labels given a data.frame,
 #' a template with formatting instructions and a name for the pdf file.
@@ -18,7 +18,7 @@
 #'
 #' @param info data.frame with content for barcode
 #' @param template path to yaml file with configuration details
-#' @param tofile path to output file
+#' @param to_file path to output file
 #'
 #' @return nothing
 #' @export
@@ -29,13 +29,14 @@
 #'   print_label()
 #' }
 print_label <- function(info = utils::read.csv(
-                                system.file("samples/invitro.csv",
-                                           package = "qr4genebanks")
+                          system.file("samples/invitro.csv",
+                            package = "qr4genebanks"
+                          )
                         ),
                         template = system.file("templates/label1.yaml",
                           package = "qr4genebanks"
                         ),
-                        tofile = "sample.pdf") {
+                        to_file = "sample.pdf") {
   stopifnot(is.data.frame(info))
   stopifnot(nrow(info) > 0)
   mm_to_inch <- 0.0393701
@@ -52,13 +53,15 @@ print_label <- function(info = utils::read.csv(
   width <- (tpl$width + .5) * mm_to_inch
   height <- tpl$height * mm_to_inch
   margin <- tpl$margin * mm_to_inch
-  # out <- paste0(tpl$prefix, tofile)
-  out <- tofile
+
+  out <- to_file
   old_mar <- graphics::par()$mar
 
 
-  grDevices::pdf(file = out, width = width * labels_per_row,
-                 height = height, pointsize = pointsize)
+  grDevices::pdf(
+    file = out, width = width * labels_per_row,
+    height = height, pointsize = pointsize
+  )
   graphics::par(mar = c(margin, margin, margin, margin))
   graphics::layout(get_design_matrix(labels_per_row))
 
@@ -72,4 +75,3 @@ print_label <- function(info = utils::read.csv(
 
   grDevices::dev.off()
 }
-
