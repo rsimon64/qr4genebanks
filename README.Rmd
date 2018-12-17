@@ -36,7 +36,7 @@ devtools::install_github("rsimon64/qr4genebanks")
 
 The following code will create a PDF file. Here we insert a PNG snapshot. ![sample](sample.png)
 ```{r eval=FALSE}
-qr4genebanks::print_label()
+qr4genebanks::qg?print_labels()
 ```
 
 ## Configuration

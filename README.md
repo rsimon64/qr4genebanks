@@ -40,7 +40,7 @@ The following code will create a PDF file. Here we insert a PNG
 snapshot. ![sample](sample.png)
 
 ``` r
-qr4genebanks::print_label()
+qr4genebanks::qg?print_labels()
 ```
 
 ## Configuration

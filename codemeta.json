@@ -175,7 +175,6 @@
     }
   ],
   "readme": "https://github.com/rsimon64/qr4genebanks/blob/master/README.md",
-  "fileSize": "14.437KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/rsimon64/qr4genebanks",
     "https://travis-ci.org/rsimon64/qr4genebanks"

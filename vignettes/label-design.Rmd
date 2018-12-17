@@ -87,14 +87,5 @@ Se implemento un algoritmo en R para generar unas muestras para tres diferentes 
 
 Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.
 
-# Pendientes
-
-La proxima semana estaremos evaluando con Luis Guerra la conexion a la impresora Zebra. Espero que se pueda establecer una conexion directa desde R lo cual facilitaría la implementación de una aplicación basado en el algoritmo implementado. 
-
-Si no habrá que evaluar otras dos opciones mas: a) usando el programa de diseño de etiquetas de Zebra, y b) usando un idioma de programación de las impresoras Zebras. Los dos otros opciones implicarán trabajo y tiempo de investigación de formatos adicional.
-
-En todo caso sera bueno de avanzar en la revisión de diseño y compilar un listado de plantillas con sus detalles que se va necesitar. 
-
-En caso que logramos la conexión entre impresora Zebra y R procederé con la tarea b) es decir la implementación de un interfacio simple y gráfico. 
 
 
