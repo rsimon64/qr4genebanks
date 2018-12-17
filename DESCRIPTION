@@ -1,16 +1,19 @@
 Package: qr4genebanks
 Title: QR Label Creator
-Version: 0.0.4
-Authors@R: person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre"))
+Version: 0.1.4
+Authors@R: c(
+  person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre")),
+  person("Luis", "Guerra", role = c("ctb") , email = "eguerra@inia.gob.pe"),
+  person("Cinthya", "Zorrilla", email = "czorrilla@inia.gob.pe", role = c("ctb"))
+  )
+Maintainer: Reinhard Simon <rsimon64@gmail.com>
 Description: Creates QR codes for a set of items given a data.frame and a template.
-DRGBView: tracking, labeling
 Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: graphics, imager, qrencoder, yaml, raster
-Suggests: 
-    knitr,
+Suggests: knitr,
     rmarkdown,
     covr,
     spelling,
