@@ -23,7 +23,8 @@
       "@type": "Person",
       "givenName": "Reinhard",
       "familyName": "Simon",
-      "email": "rsimon64@gmail.com"
+      "email": "rsimon64@gmail.com",
+      "@id": "https://orcid.org/0000-0002-4608-9077"
     }
   ],
   "contributor": [
@@ -45,7 +46,8 @@
       "@type": "Person",
       "givenName": "Reinhard",
       "familyName": "Simon",
-      "email": "rsimon64@gmail.com"
+      "email": "rsimon64@gmail.com",
+      "@id": "https://orcid.org/0000-0002-4608-9077"
     }
   ],
   "softwareSuggestions": [
@@ -172,7 +174,7 @@
     }
   ],
   "readme": "https://github.com/rsimon64/qr4genebanks/blob/master/README.md",
-  "fileSize": "50.645KB",
+  "fileSize": "50.703KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/rsimon64/qr4genebanks",
     "https://travis-ci.org/rsimon64/qr4genebanks"
