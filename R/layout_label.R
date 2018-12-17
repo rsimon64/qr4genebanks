@@ -40,10 +40,10 @@ layout_label <- function(i, header, info, tpl) {
     empty_plot(max_lines)
     logo_path <- tpl$block_ID$logo$path
 
-    if (logo_path == "x.png") {
+    if (is.null(logo_path)) {
       message("Logo file not found.")
       logo_path <- system.file(
-        file.path("templates", logo_path),
+        file.path("templates", "logo.png"),
         package = "qr4genebanks"
       )
     }

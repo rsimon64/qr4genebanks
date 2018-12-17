@@ -26,5 +26,5 @@ Suggests: knitr,
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Language: en-US
-URL: https://github.com/rsimon64/qr4genebanks
+URL: https://rsimon64.github.io/qr4genebanks
 BugReports: https://github.com/rsimon64/qr4genebanks/issues

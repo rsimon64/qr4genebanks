@@ -1,6 +1,6 @@
 context("qg_print_labels")
 
-res <- tempfile(fileext = ".pdf", pattern = "Label_")
+res <- tempfile(fileext = ".pdf", pattern = "Labels_")
 
 test_that("parameter type and range is ok", {
   skip_on_cran()
@@ -26,7 +26,7 @@ test_that("Return types work", {
   })
 
   expect_true({
-    file.size(res) == 15089
+    file.size(res) >= 15000
   })
 
   unlink(res)

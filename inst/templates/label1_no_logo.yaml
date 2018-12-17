@@ -18,12 +18,6 @@ lines: 10
 spacer: 2
 block_ID:
   position: 1
-  logo:
-    path: "x.png"
-    bl_x: 0
-    bl_y: 5
-    tr_x: 11
-    tr_y: 10
   x_pos: 5.5
   y_pos: 5.5
 block_QR:

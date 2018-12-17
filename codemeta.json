@@ -7,7 +7,7 @@
   "identifier": "qr4genebanks",
   "description": "Creates QR codes for a set of items given a data.frame and a template.",
   "name": "qr4genebanks: QR Label Creator",
-  "codeRepository": "https://github.com/rsimon64/qr4genebanks",
+  "codeRepository": "https://rsimon64.github.io/qr4genebanks",
   "issueTracker": "https://github.com/rsimon64/qr4genebanks/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
   "version": "0.1.4",
@@ -175,7 +175,7 @@
     }
   ],
   "readme": "https://github.com/rsimon64/qr4genebanks/blob/master/README.md",
-  "fileSize": "50.796KB",
+  "fileSize": "14.437KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/rsimon64/qr4genebanks",
     "https://travis-ci.org/rsimon64/qr4genebanks"
