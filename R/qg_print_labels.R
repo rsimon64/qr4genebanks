@@ -1,4 +1,4 @@
-#' print_labels
+#' qg_print_labels
 #'
 #' Creates a PDF file with barcoded labels given a data.frame,
 #' a template with formatting instructions and a name for the pdf file.
@@ -28,7 +28,7 @@
 #' if (interactive()) {
 #'   print_label()
 #' }
-print_label <- function(info = utils::read.csv(
+qg_print_labels <- function(info = utils::read.csv(
                           system.file("samples/invitro.csv",
                             package = "qr4genebanks"
                           ), stringsAsFactors = FALSE

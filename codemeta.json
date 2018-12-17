@@ -38,7 +38,8 @@
       "@type": "Person",
       "givenName": "Cinthya",
       "familyName": "Zorrilla",
-      "email": "czorrilla@inia.gob.pe"
+      "email": "czorrilla@inia.gob.pe",
+      "@id": "https://orcid.org/0000-0001-5370-1677"
     }
   ],
   "maintainer": [
@@ -174,7 +175,7 @@
     }
   ],
   "readme": "https://github.com/rsimon64/qr4genebanks/blob/master/README.md",
-  "fileSize": "50.703KB",
+  "fileSize": "50.796KB",
   "contIntegration": [
     "https://ci.appveyor.com/project/rsimon64/qr4genebanks",
     "https://travis-ci.org/rsimon64/qr4genebanks"
