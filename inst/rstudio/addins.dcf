@@ -1,0 +1,4 @@
+Name: Imprimir etiquetas
+Description: Imprimir etiquetas
+Binding: run_app
+Interactive: true
