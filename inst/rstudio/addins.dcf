@@ -1,4 +1,4 @@
-Name: Imprimir etiquetas QR
-Description: Imprimir etiquetas
+Name: Print labels
+Description: Print labels
 Binding: run_app
 Interactive: true
