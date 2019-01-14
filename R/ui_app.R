@@ -1,3 +1,4 @@
+
 downloadButton <- function (outputId, label = "Download", class = NULL, ...) {
   aTag <-
     shiny::tags$a(
@@ -17,6 +18,7 @@ header <- shinydashboard::dashboardHeader(
   titleWidth = 300,
   title = "Imprimir C\u00F3digos de Barra"
 )
+
 
 sidebar <- shinydashboard::dashboardSidebar(width = 300,
                                             shiny::radioButtons("tplId", "Escoja un dise\U00F1o", list(
@@ -42,6 +44,7 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
 
 
 
+
 body <- shinydashboard::dashboardBody(
   shiny::fluidRow(
     shiny::column(12,
@@ -63,7 +66,6 @@ body <- shinydashboard::dashboardBody(
     )
   )
 )
-
 
 ui_app <- shinydashboard::dashboardPage(skin = "green",
                                         header,

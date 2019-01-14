@@ -3,7 +3,7 @@ context("qg_print_labels")
 res <- tempfile(fileext = ".pdf", pattern = "Labels_")
 
 test_that("parameter type and range is ok", {
-  skip_on_cran()
+  # skip_on_cran()
   expect_error({
     qg_print_labels("", to_file = res)
   })
@@ -17,7 +17,7 @@ test_that("parameter type and range is ok", {
 })
 
 test_that("Return types work", {
-  skip_on_cran()
+  # skip_on_cran()
 
   qg_print_labels(to_file = res)
 
