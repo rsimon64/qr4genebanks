@@ -49,6 +49,10 @@ sv_qr4genebanks <- function(input, output, session) {
     })
   })
 
+  shiny::observeEvent(input$language, {
+    Sys.setenv(QR4GB_LANUAGE = input$language)
+  })
+
 
 
   shiny::observe({

@@ -30,7 +30,7 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
                                               "Dise\u00f1o 3x1" = "2"
                                             ), inline = TRUE),
                                             shiny::fileInput("csvFile", "Escoger el archivo de datos a imprimir"
-                                                             , buttonLabel = "Navegar ...",
+                                                             , buttonLabel = tr("Navegar ..."),
                                                              accept = c(
                                                                "text/csv",
                                                                "text/comma-separated-values,text/plain",
