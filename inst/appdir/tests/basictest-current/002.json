@@ -1,0 +1,17 @@
+{
+  "input": {
+    "close": 0,
+    "csvFile": null,
+    "language": "en",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tplId": "1"
+  },
+  "output": {
+    "contents": null,
+    "ready": false
+  },
+  "export": {
+
+  }
+}

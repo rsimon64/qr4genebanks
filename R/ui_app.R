@@ -21,7 +21,11 @@ header <- shinydashboard::dashboardHeader(
 
 
 sidebar <- shinydashboard::dashboardSidebar(width = 300,
-                                            shiny::radioButtons("tplId", "Escoja un dise\U00F1o", list(
+                                            shiny::radioButtons("language", "Idioma", list(
+                                                                "Spanish" = "es",
+                                                                "English" = "en")
+                                                                ),
+                                            shiny::radioButtons("tplId", "Escoge un dise\U00F1o", list(
                                               "Dise\u00F1o 2x1" = "1",
                                               "Dise\u00f1o 3x1" = "2"
                                             ), inline = TRUE),
