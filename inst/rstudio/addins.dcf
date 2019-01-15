@@ -1,4 +1,4 @@
 Name: Print labels
 Description: Print labels
-Binding: run_app
+Binding: qr4gb_app
 Interactive: true

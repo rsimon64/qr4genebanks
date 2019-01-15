@@ -21,6 +21,7 @@ header <- shinydashboard::dashboardHeader(
 )
 
 local_lang <- stringr::str_split(Sys.getenv("OOBEUILang"), "-")[[1]][1]
+local_lang <- ifelse(!local_lang %in% c("en", "es", "de"), "en", local_lang)
 
 
 sidebar <- shinydashboard::dashboardSidebar(width = 300,
@@ -62,16 +63,17 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
 body <- shinydashboard::dashboardBody(
   shiny::fluidRow(
     shiny::column(12,
-                  shinycards::card(
-                    shiny::uiOutput("qrHints")
-                  ),
                   shinycards::card(width = 9, icon = NULL,
                                    title = shiny::uiOutput("previewTitle"),
                                    shiny::tableOutput("contents"),
                                    shiny::conditionalPanel(condition = "output.ready",
                                                            downloadButton('downloadData', shiny::uiOutput("pdfDownload"))
                                    )
+                  ),
+                  shinycards::card(
+                    shiny::uiOutput("qrHints")
                   )
+
 
     )
   )
