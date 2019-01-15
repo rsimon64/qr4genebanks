@@ -1,0 +1,22 @@
+id	en	es	de
+download	Download	Descargar	Herunterladen
+navegar	Browse	Navegar	Navigieren
+language	Language	Idioma	Sprache
+es	Spanish	Español	Spanisch
+en	English	Inglés	Englisch
+de	German	Alemán	Deutsch
+layout	Choose a layout	Selecciona un diseño	Wähle ein Layout
+2x1	Layout 2x1	Diseño 2x1	Layout 2x1
+3x1	Layout 3x1	Diseño 3x1	Layout 3x1
+title	Print QR label	Imprimir etiqueta con código QR	Drucke QR Etiketten
+fileTitle	Select file to print	Selecciona el archivo de datos a imprimir	Wähle eine Datei zum drucken
+fileLabel	Browse	Navega	Suche
+filePlaceholder	No file selected	Ningún archivo seleccionado	Keine Datei aktiv
+btnClose	Exit app	Cerrar aplicación	App schliessen
+previewTitle	Showing a maximum of six rows of the table.	Mostrando un máximo de seis filas de la tabla.	Es werden nur die ersten sechs Reihen der Tabelle gezeigt.
+pdfDownload	Download PDF!	Descargar PDF!	PDF herunterladen!
+hint1	The table must have six to nine columns.	La tabla debe tener de seis a nueve columnas.	Die Tabelle muss sechs bis neun Spalten haben.
+hint2	The first column must contain the identification code.	La primera columna debe contener el código de identificación.	Die erste Spalte muss den Identifikationscode enthalten.
+hint3	Columns two through five must contain information for the first block.	Las columnas dos a cinco deben contener información para el primer bloque.	Die Spalten zwei bis fünf muessen die Informationen für den ersten Block enthalten.
+hint4	Columns six through nine must contain information for the second block.	Las columnas seis a nueve deben contener información para el segundo bloque.	Die Spalten sechs bis neun müssen Informationen für den zweiten Block enthalten.
+hint5	The second block can have between one to four columns.	El segundo bloque puede tener entre una a cuatro columnas.	Der zweite Block kann zwischen einer und vier Spalten haben.

@@ -1,5 +1,6 @@
 
-downloadButton <- function (outputId, label = "Download", class = NULL, ...) {
+
+downloadButton <- function (outputId, label = shiny::uiOutput("download"), class = NULL, ...) {
   aTag <-
     shiny::tags$a(
       id = outputId,
@@ -16,21 +17,30 @@ downloadButton <- function (outputId, label = "Download", class = NULL, ...) {
 
 header <- shinydashboard::dashboardHeader(
   titleWidth = 300,
-  title = "Imprimir C\u00F3digos de Barra"
+  title = shiny::uiOutput("headerTitle") # "Imprimir C\u00F3digos de Barra"
 )
+
+local_lang <- stringr::str_split(Sys.getenv("OOBEUILang"), "-")[[1]][1]
 
 
 sidebar <- shinydashboard::dashboardSidebar(width = 300,
-                                            shiny::radioButtons("language", "Idioma", list(
-                                                                "Spanish" = "es",
-                                                                "English" = "en")
+                                            # shiny::uiOutput("radioLangs"),
+                                            shiny::radioButtons("lang", "Language",
+                                                                list(
+                                                                  English = "en",
+                                                                  Spanish = "es",
+                                                                  German = "de"
                                                                 ),
-                                            shiny::radioButtons("tplId", "Escoge un dise\U00F1o", list(
-                                              "Dise\u00F1o 2x1" = "1",
-                                              "Dise\u00f1o 3x1" = "2"
+                                                                selected = local_lang
+                                                                ),
+
+                                            shiny::radioButtons("tplId", "Choose a layout", list(
+                                              "Layout 2x1" = "1",
+                                              "Layout 3x1" = "2"
                                             ), inline = TRUE),
-                                            shiny::fileInput("csvFile", "Escoger el archivo de datos a imprimir"
-                                                             , buttonLabel = tr("Navegar ..."),
+                                            shiny::fileInput("csvFile", shiny::uiOutput("fileTitle"),
+                                                             buttonLabel = shiny::uiOutput("fileLabel"),
+                                                             placeholder = "...",
                                                              accept = c(
                                                                "text/csv",
                                                                "text/comma-separated-values,text/plain",
@@ -41,7 +51,7 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
                                               class = "btn action-button btn-primary",
                                               shiny::icon("power-off"),
                                               onclick = "setTimeout(function(){window.close();}, 10);",  # close browser
-                                              "Cerrar applicaci\u00F3n"
+                                              shiny::uiOutput("btnClose")
                                             )
 )
 
@@ -53,17 +63,13 @@ body <- shinydashboard::dashboardBody(
   shiny::fluidRow(
     shiny::column(12,
                   shinycards::card(
-                    shiny::p("- La tabla debe tener de seis a nueve columnas."),
-                    shiny::p("- La primera columna debe contener el c\u00F3digo de identificaci\u00F3n."),
-                    shiny::p("- Las columnas dos a cinco deben contener informaci\u00F3n del primer bloque."),
-                    shiny::p("- Las columnas seis a nueve deben contener informaci\u00F3n del segundo bloque."),
-                    shiny::p("- El segundo bloque puede tener entre una a cuatro columnas.")
+                    shiny::uiOutput("qrHints")
                   ),
                   shinycards::card(width = 9, icon = NULL,
-                                   title = "Mostrando un m\U00e1ximo de seis filas de la tabla.",
+                                   title = shiny::uiOutput("previewTitle"),
                                    shiny::tableOutput("contents"),
                                    shiny::conditionalPanel(condition = "output.ready",
-                                                           downloadButton('downloadData', 'Bajar PDF!')
+                                                           downloadButton('downloadData', shiny::uiOutput("pdfDownload"))
                                    )
                   )
 
