@@ -63,14 +63,14 @@ sidebar <- shinydashboard::dashboardSidebar(width = 300,
 body <- shinydashboard::dashboardBody(
   shiny::fluidRow(
     shiny::column(12,
-                  shinycards::card(width = 9, icon = NULL,
+                  card(width = 9, icon = NULL,
                                    title = shiny::uiOutput("previewTitle"),
                                    shiny::tableOutput("contents"),
                                    shiny::conditionalPanel(condition = "output.ready",
                                                            downloadButton('downloadData', shiny::uiOutput("pdfDownload"))
                                    )
                   ),
-                  shinycards::card(
+                  card(
                     shiny::uiOutput("qrHints")
                   )
 

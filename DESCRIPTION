@@ -24,10 +24,8 @@ Suggests: knitr,
     spelling,
     testthat,
     shiny,
-    shinycards,
     shinydashboard,
     shinytest
-Remotes: rsimon64/shinycards    
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Language: en-US
