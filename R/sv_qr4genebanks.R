@@ -37,8 +37,7 @@ sv_qr4genebanks <- function(input, output, session) {
     shiny::updateRadioButtons(session, "tplId",
                        trlt("layout", x),
                        choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
-                       choiceValues = c("2x1", "3x1"),
-                       selected = x
+                       choiceValues = c("2x1", "3x1")
     )
 
     output$headerTitle <- shiny::renderUI({
