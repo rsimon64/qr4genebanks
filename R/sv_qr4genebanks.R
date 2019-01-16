@@ -1,7 +1,7 @@
 dict <- read.delim2(system.file("lang/dictionary.txt", package = "qr4genebanks"), sep = "\t")
 
 trlt <- function(term, lang) {
-  HTML(as.character(dict[term == dict$id, lang]))
+  shiny::HTML(as.character(dict[term == dict$id, lang]))
 }
 
 
@@ -23,56 +23,56 @@ sv_qr4genebanks <- function(input, output, session) {
     return(list(langs, nms))
   }
 
-  observe({
+  shiny::observe({
     x <- input$lang
 
     # Can also set the label and select items
-    updateRadioButtons(session, "lang",
+    shiny::updateRadioButtons(session, "lang",
                        trlt("language", x),
                        choiceNames = get_langs(x)[[2]],
                        choiceValues = as.character(get_langs(x)[[1]]),
                        selected = x
     )
 
-    updateRadioButtons(session, "tplId",
+    shiny::updateRadioButtons(session, "tplId",
                        trlt("layout", x),
                        choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
                        choiceValues = c("2x1", "3x1"),
                        selected = x
     )
 
-    output$headerTitle <- renderUI({
+    output$headerTitle <- shiny::renderUI({
       trlt("title", x)
     })
 
-    output$download <- renderUI({
+    output$download <- shiny::renderUI({
       trlt("download", x)
     })
 
-    output$btnClose <- renderUI({
+    output$btnClose <- shiny::renderUI({
       trlt("btnClose", x)
     })
 
-    output$fileTitle <- renderUI({
+    output$fileTitle <- shiny::renderUI({
       trlt("fileTitle", x)
     })
 
-    output$fileLabel <- renderUI({
+    output$fileLabel <- shiny::renderUI({
       trlt("fileLabel", x)
     })
 
-    output$previewTitle <- renderUI({
+    output$previewTitle <- shiny::renderUI({
       trlt("previewTitle", x)
     })
 
-    output$qrHints <- renderUI({
+    output$qrHints <- shiny::renderUI({
       shiny::p(
-        tags$ol(
-          tags$li(trlt("hint1", x)),
-          tags$li(trlt("hint2", x)),
-          tags$li(trlt("hint3", x)),
-          tags$li(trlt("hint4", x)),
-          tags$li(trlt("hint5", x))
+        shiny::tags$ol(
+          shiny::tags$li(trlt("hint1", x)),
+          shiny::tags$li(trlt("hint2", x)),
+          shiny::tags$li(trlt("hint3", x)),
+          shiny::tags$li(trlt("hint4", x)),
+          shiny::tags$li(trlt("hint5", x))
         )
 
       )
