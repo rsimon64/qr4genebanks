@@ -8,11 +8,8 @@ trlt <- function(term, lang) {
 sv_qr4genebanks <- function(input, output, session) {
 
   get_langs  <- function(lang) {
-    langs <- list(
-      "en",
-      "es",
-      "de"
-    )
+    langs <- as.list(names(dict)[-1])
+
     n <- length(langs)
     nms <- character(n)
     vls <- character(n)
@@ -22,6 +19,7 @@ sv_qr4genebanks <- function(input, output, session) {
 
     return(list(langs, nms))
   }
+
 
   shiny::observe({
     x <- input$lang
