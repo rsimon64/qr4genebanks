@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones en el dise&#0241;o de etiquetas para c&#0243;digo de barras"
+title: "Notes (en)"
 author: "Reinhard Simon"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -16,76 +16,76 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Motivación
+# Motivation
 
-Etiquetas con códigos de barra han sido identificados para ser implementados en los laboratorios y estaciones del INIA. Actualmente se cuenta con una impresora semi-industrial de marca Zebra en Lima. Faltan principlamente dos tareas: a) la evaluación de diseños y b) la disponibilidad de un programa en idioma español para generar las etiquetas por personal técnico.
+Labels with digital codes are a basic tool in the tracking of genetic materials.
 
-# Criterios
+# Criteria
 
-Entre los criterios generales de contenido se establece que las etiquetas deben:
+Among the general content criteria it is established that the labels must:
 
-1. identificar un material genético
-2. usar un codigo facilmente legible por lectores 
-3. visualizar información explicita selécta sobre el material
-4. visualizar informacion adicional para facilitar el manejo local del grupo
+1. identify a genetic material
+2. use a code easily readable by readers
+3. visualize explicit information about the material
+4. display additional information to facilitate the local management of the group
 
-Entre los criterios generales de diseño se establece:
+Among the general design criteria is established:
 
-- Los elementos textuales y graficos deben ser claros para ser leidos rapidamente tanto por maquina como por personas
-- Una estructura común y estandarizado también facilita la lectura y comprensión
-- Los elementos estructurales deben adaptarse a varios formatos de etiquetas
+- The textual and graphic elements must be clear to be read quickly by machine or by people
+- A common and standardized structure also facilitates reading and comprehension
+- Structural elements must adapt to various label formats
 
-# Buenas prácticas
+# Good practices
 
-- En la medida posible se debe usar estándares populares para bajar costos de adquisición y mantenimiento.
-- Se debe usar tecnologías robustas ya que las etiquetas van a ser manipuladas con frecuencia y a veces bajo condiciones duras como en el campo o a temperaturas muy bajas.
-- Las etiquetas también deben ser altamente consistentes entre ellos como una medida de calidad y de imagen institucional.
-- Se identifica el código QR como la tecnología de impresión de ´código de barra´.
-  - Los códigos dos dimensionales (2D) son mas robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar lineas lo cual malogra los codigos de barras de lineas.
-  - También los códigos 2D tienen un mejor sistema interno para asegurar la lectura de contenido a pesar de posibles daños locales.
-  - El código QR es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la acceptación.
+- To the extent possible, popular standards should be used to lower acquisition and maintenance costs.
+- Robust technologies must be used since the labels are going to be manipulated frequently and sometimes under hard conditions such as in the field or at very low temperatures.
+- The labels must also be highly consistent among them as a measure of quality and institutional image.
+- The QR code is identified as the 'bar code' printing technology.
+- Two dimensional (2D) codes are more robust to printer wear, since over time printers tend to skip lines which spoils the line bar codes.
+- Also 2D codes have a better internal system to ensure the reading of content despite possible local damage.
+- The QR code is a very popular current code and many cell phones or other modern equipment can read it apart from specialized equipment. This facilitates implementation and acceptance.
 
-# Implementación
+# Implementation
 
-Correspondiendo a la tarea a) se definó un diseño basado en cuatro bloques cuadraticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetes disponibles se establecio tambien que por bloque un máximo de cuatro campos son disponibles.
-En mas detalle:
+Corresponding to task a) a design based on four quadratic blocks was defined. Each block corresponds to one of the listed criteria. Based on the available label models, it was also established that a maximum of four fields are available per block.
+In more detail:
 
-1. Bloque ID (identificación): Corresponde a la cabezera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:
-  - autoridad: mediante un logo
-  - Unidad (p.e. Dirección)
-  - Subunidad (p.e. collección)
-  - fecha de impresión
-  - Código de collección principál
-2. Bloque QR: Contiene todos los datos impresos en forma codificada
-  - Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de collecta y otras observaciones.
-3. Bloque de información mínima estandarizada. Aquí se podra incluir cuatro campos. La idea principal es que seán algo común entre collecciones como
-  - nombre del cultivo
-  - nombre científico
-  - fecha indicativo de edad de materiál (siembra, multiplicación, extracción de ADN, collecta
-de herbario, etc)
-  - proveniencia de materiál (collección, cruze, país, ...)
-4. Bloque información addicionál. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:
-  - Codigo laboratorio o mejorador
-  - Método de preparación de material o medio
-  - Importáncia de materiál: forma parte de una colleción core.
-  - Estado de limpieza fitosanitario
-  - Observaciones
-  - etc.
+1. Block ID (identification): Corresponds to the head of a formal letter: identifies the authority, place, date, and genetic material. Suggested sequence:
+- authority: through a logo
+- Unit (eg Address)
+- Subunit (eg collection)
+- printing date
+- Main collection code
 
-Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadraticas y semi-rectangulares manteninedo legibilidad y un diseño visual atractivo. En etqiuetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).
+2. QR Block: Contains all data printed in encrypted form
+- Option for a next version: include important documentation data as in the case of labeling herbaria. It may include descriptions of the place of collecta and other observations.
 
-Se implemento un algoritmo en R para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo accepta principalmente una tabla con los datos entrantes, datos de cabezera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por materiál genético. Los tres datos de cabezera son configurables al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el logo no cambia y este parametro es solo configurable al nivel de plantilla. La plantilla define varios detalles mas especificos como:
+3. Standardized minimum information block. Here you can include four fields. The main idea is that they will be common among collections as
+- name of the crop
+- scientific name
+- Indicative date of material age (sowing, multiplication, extraction of DNA, collecta
+herbarium, etc)
+- origin of material (collection, crossing, country, ...)
 
-- margen alrededor
+4. Additional information block. Main idea is to provide important logistical information. It could be included for example:
+- Laboratory code or improver
+- Method of preparation of material or medium
+- Material Importance: part of a core collection.
+- State of phytosanitary cleaning
+- Observations
+- etc.
+
+It was confirmed that the four blocks can be organized in the form of a 2x2 table in quadratic and semi-rectangular labels, maintaining a readability and an attractive visual design. In rectangular profiles such as field ties you can organize the blocks in the form of a row with four columns (1x4) or in a column with four rows (4x1).
+
+An algorithm was implemented in R to generate samples for three different sizes of labels. The algorithm mainly accepts a table with the incoming data, header data, and the name of a template file. The incoming table must have four to eight fields per genetic material. The three header data are configurable at the batch level (ie they are repeated on each label) for the ID block. It is assumed that the authority or the logo does not change and this parameter is only configurable at the template level. The template defines several more specific details such as:
+
+- margin around
 - layout: 2x2, 1x4, 4x1
 - Font
-- Fontface: normál, itálico, grueso, italico-grueso
+- Fontface: normál, italic, coarse, italico-coarse
 - Fontsize
-- Imprimir o no imprimir los nombres de los campos (para mejorar legibilidad en etiquetas chicas y/o ahorrar tinta)
-- Espacio entre campos: 1 o 2
-- otros en evaluación
+- Print or not print the names of the fields (to improve readability on small labels and / or save ink)
+- Space between fields: 1 or 2
+- others under evaluation
 
-Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.
-
-
-
+Four samples have been created with some sample data invented for eleven materials in three collections.

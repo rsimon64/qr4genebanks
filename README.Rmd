@@ -37,9 +37,19 @@ The following code will create a PDF file. Here we insert a PNG snapshot. ![samp
 qr4genebanks::qg_print_labels()
 ```
 
+## App
+
+A shiny app is included with a multilingual interface (English, Spanish, German, French, Portoguese).
+It can be started from within RStudio´s Addin menu (QR4GENEBANKS -> Print Label) or from the console in R or RStudio using the following line:
+
+```{r eval=FALSE}
+qr4genebanks::qr4gb_app()
+```
+
+
 ## Configuration
 
-The label ayouts can be configured through yaml files. There are four examples for different label types (small square, medium square, large rectangular) reflecting typical use cases in a plant genebank (DNA storage, in-vitro cultures, field collection respectively).
+The label layouts can be configured through yaml files. There are four examples for different label types (small square, medium square, large rectangular) reflecting typical use cases in a plant genebank (DNA storage, in-vitro cultures, field collection respectively).
 
 One block is reserved for including a raster image typically used for a logo of the lab or institute.
 

@@ -39,9 +39,20 @@ snapshot. ![sample](sample.png)
 qr4genebanks::qg_print_labels()
 ```
 
+## App
+
+A shiny app is included with a multilingual interface (English, Spanish,
+German, French, Portoguese). It can be started from within RStudio´s
+Addin menu (QR4GENEBANKS -\> Print Label) or from the console in R or
+RStudio using the following line:
+
+``` r
+qr4genebanks::qr4gb_app()
+```
+
 ## Configuration
 
-The label ayouts can be configured through yaml files. There are four
+The label layouts can be configured through yaml files. There are four
 examples for different label types (small square, medium square, large
 rectangular) reflecting typical use cases in a plant genebank (DNA
 storage, in-vitro cultures, field collection respectively).

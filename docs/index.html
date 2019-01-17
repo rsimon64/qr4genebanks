@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">qr4genebanks</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -53,7 +53,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="articles/label-design.html">Consideraciones en el dise&amp;#0241;o de etiquetas para c&amp;#0243;digo de barras</a>
+      <a href="articles/label-design.html">Notes (en)</a>
+    </li>
+    <li>
+      <a href="articles/label-design_de.html">Bemerkungen (de)</a>
+    </li>
+    <li>
+      <a href="articles/label-design_es.html">Notas (es)</a>
     </li>
   </ul>
 </li>
@@ -96,10 +102,16 @@
 <p>The following code will create a PDF file. Here we insert a PNG snapshot. <img src="sample.png" alt="sample"></p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">qr4genebanks<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/qr4genebanks/topics/qg_print_labels">qg_print_labels</a></span>()</a></code></pre></div>
 </div>
+<div id="app" class="section level2">
+<h2 class="hasAnchor">
+<a href="#app" class="anchor"></a>App</h2>
+<p>A shiny app is included with a multilingual interface (English, Spanish, German, French, Portoguese). It can be started from within RStudio´s Addin menu (QR4GENEBANKS -&gt; Print Label) or from the console in R or RStudio using the following line:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">qr4genebanks<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/qr4genebanks/topics/qr4gb_app">qr4gb_app</a></span>()</a></code></pre></div>
+</div>
 <div id="configuration" class="section level2">
 <h2 class="hasAnchor">
 <a href="#configuration" class="anchor"></a>Configuration</h2>
-<p>The label ayouts can be configured through yaml files. There are four examples for different label types (small square, medium square, large rectangular) reflecting typical use cases in a plant genebank (DNA storage, in-vitro cultures, field collection respectively).</p>
+<p>The label layouts can be configured through yaml files. There are four examples for different label types (small square, medium square, large rectangular) reflecting typical use cases in a plant genebank (DNA storage, in-vitro cultures, field collection respectively).</p>
 <p>One block is reserved for including a raster image typically used for a logo of the lab or institute.</p>
 <p>The QR image itself stores in this version just the main identifier.</p>
 <p>More information can be found in the tutorial.</p>

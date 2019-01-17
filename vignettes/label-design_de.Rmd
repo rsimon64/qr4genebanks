@@ -1,0 +1,89 @@
+---
+title: "Bemerkungen (de)"
+author: "Reinhard Simon"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Label Design}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Motivation
+
+Etiketten mit digitalen Codes sind ein grundlegendes Werkzeug für die Verfolgung genetischer Materialien.
+
+# Kriterien
+
+Unter den allgemeinen Inhaltskriterien wird festgelegt, dass die Etiketten:
+
+1. Ein genetisches Material identifizieren
+2. Einen Code verwenden, der von Lesern leicht lesbar ist
+3. Explizite Informationen zum Material enthaelt
+4. Zusätzliche Informationen anzeigen, um die lokale Verwaltung der Gruppe zu erleichtern
+
+Zu den allgemeinen Gestaltungskriterien wird Folgendes festgelegt:
+
+- Die Text- und Grafikelemente müssen klar sein, um von Maschinen oder Personen schnell gelesen zu werden
+- Eine einheitliche und einheitliche Struktur erleichtert das Lesen und Verstehen
+- Strukturelemente müssen sich an verschiedene Etikettenformate anpassen
+
+# Gute Praktiken
+
+- Soweit möglich, sollten gängige Standards zur Senkung der Anschaffungs- und Wartungskosten verwendet werden.
+- Robuste Technologien müssen verwendet werden, da die Etiketten häufig und manchmal unter harten Bedingungen wie im Feld oder bei sehr niedrigen Temperaturen manipuliert werden.
+- Die Etiketten müssen auch als Maß für Qualität und institutionelles Image unter ihnen hoch konsistent sein.
+- Der QR-Code wird als "Barcode" -Drucktechnologie bezeichnet.
+- Zweidimensionale (2D) Codes sind robuster für die Abnutzung des Druckers, da Drucker im Laufe der Zeit dazu neigen, Zeilen zu überspringen, wodurch die Strichcodes der Zeile beeinträchtigt werden.
+- Auch 2D-Codes verfügen über ein besseres internes System, um das Lesen von Inhalten trotz möglicher lokaler Schäden sicherzustellen.
+- Der QR-Code ist ein sehr beliebter aktueller Code, und viele Mobiltelefone oder andere moderne Geräte können ihn außer Spezialgeräten lesen. Dies erleichtert die Implementierung und Akzeptanz.
+
+# Implementierung
+
+Entsprechend Aufgabe a) wurde ein auf vier quadratischen Blöcken basierendes Design definiert. Jeder Block entspricht einem der aufgeführten Kriterien. Basierend auf den verfügbaren Etikettenmodellen wurde auch festgestellt, dass pro Block maximal vier Felder verfügbar sind.
+Genauer:
+
+1. Block-ID (Identifikation): Entspricht dem Kopf eines förmlichen Schreibens: Identifiziert die Behörde, den Ort, das Datum und das genetische Material. Vorgeschlagene Reihenfolge:
+- Behörde: durch ein Logo
+- Einheit (zB Adresse)
+- Untereinheit (zB Sammlung)
+- Druckdatum
+- Hauptsammlungscode
+2. QR-Block: Enthält alle Daten, die in verschlüsselter Form gedruckt werden
+- Option für eine nächste Version: Fügen Sie wichtige Dokumentationsdaten wie bei der Kennzeichnung von Herbarien hinzu. Es kann Beschreibungen des Sammelplatzes und andere Beobachtungen enthalten.
+3. Standardisierter Mindestinformationsblock. Hier können Sie vier Felder angeben. Die Hauptidee ist, dass sie unter Sammlungen so verbreitet sein werden
+- Name der Ernte
+- wissenschaftlicher Name
+- Vorgesehenes Datum des Materialalters (Aussaat, Vermehrung, Extraktion von DNA, Sammlung)
+Herbarium usw.)
+- Herkunft des Materials (Sammlung, Überfahrt, Land, ...)
+4. Zusätzlicher Informationsblock. Hauptidee ist die Bereitstellung wichtiger logistischer Informationen. Es könnte zum Beispiel enthalten sein:
+- Laborgesetz oder Verbesserer
+- Methode zur Vorbereitung von Material oder Medium
+- Materialbedeutung: Teil einer Kernsammlung.
+- Zustand der Pflanzenschutzreinigung
+- Beobachtungen
+- usw.
+
+Es wurde bestätigt, dass die vier Blöcke in Form einer 2x2-Tabelle in quadratischen und halbrechteckigen Beschriftungen angeordnet werden können, wodurch die Lesbarkeit und ein attraktives visuelles Design erhalten bleiben. In rechteckigen Profilen, z. B. Feldverknüpfungen, können Sie die Blöcke in Form einer Zeile mit vier Spalten (1x4) oder einer Spalte mit vier Zeilen (4x1) organisieren.
+
+In R wurde ein Algorithmus implementiert, um Muster für drei verschiedene Etikettengrößen zu generieren. Der Algorithmus akzeptiert hauptsächlich eine Tabelle mit den eingehenden Daten, Kopfdaten und dem Namen einer Vorlagendatei. Die eingehende Tabelle muss vier bis acht Felder pro genetischem Material haben. Die drei Kopfdaten sind auf Chargenebene für den ID-Block konfigurierbar (dh sie werden auf jedem Etikett wiederholt). Es wird davon ausgegangen, dass sich die Autorität oder das Logo nicht ändert, und dieser Parameter kann nur auf Vorlagenebene konfiguriert werden. Die Vorlage definiert einige spezifischere Details wie:
+
+- Rand herum
+- Layout: 2x2, 1x4, 4x1
+- Schrift
+- Fontface: Normal, kursiv, grob, kursiv und grob
+- Schriftgröße
+- Die Namen der Felder drucken oder nicht drucken (zur Verbesserung der Lesbarkeit auf kleinen Etiketten und / oder zum Einsparen von Tinte)
+- Abstand zwischen Feldern: 1 oder 2
+- andere werden bewertet
+
+Es wurden vier Muster erstellt, wobei einige Musterdaten für elf Materialien in drei Sammlungen erfasst wurden.
+

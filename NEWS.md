@@ -1,3 +1,9 @@
+# qr4genebanks 0.4.0
+
+* Added support for French and Portuguese
+* Added English and German versions of tutorial
+
+
 # qr4genebanks 0.3.0
 
 * Updates to documentation

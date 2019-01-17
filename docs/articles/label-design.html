@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consideraciones en el diseño de etiquetas para código de barras • qr4genebanks</title>
+<title>Notes (en) • qr4genebanks</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Consideraciones en el diseño de etiquetas para código de barras">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Notes (en)">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">qr4genebanks</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
       </span>
     </div>
 
@@ -53,7 +53,13 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/label-design.html">Consideraciones en el dise&amp;#0241;o de etiquetas para c&amp;#0243;digo de barras</a>
+      <a href="../articles/label-design.html">Notes (en)</a>
+    </li>
+    <li>
+      <a href="../articles/label-design_de.html">Bemerkungen (de)</a>
+    </li>
+    <li>
+      <a href="../articles/label-design_es.html">Notas (es)</a>
     </li>
   </ul>
 </li>
@@ -73,7 +79,7 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Consideraciones en el diseño de etiquetas para código de barras</h1>
+      <h1>Notes (en)</h1>
                         <h4 class="author">Reinhard Simon</h4>
             
             <h4 class="date">2019-01-17</h4>
@@ -85,97 +91,94 @@
 
     
     
-<div id="motivacion" class="section level1">
+<div id="motivation" class="section level1">
 <h1 class="hasAnchor">
-<a href="#motivacion" class="anchor"></a>Motivación</h1>
-<p>Etiquetas con códigos de barra han sido identificados para ser implementados en los laboratorios y estaciones del INIA. Actualmente se cuenta con una impresora semi-industrial de marca Zebra en Lima. Faltan principlamente dos tareas: a) la evaluación de diseños y b) la disponibilidad de un programa en idioma español para generar las etiquetas por personal técnico.</p>
+<a href="#motivation" class="anchor"></a>Motivation</h1>
+<p>Labels with digital codes are a basic tool in the tracking of genetic materials.</p>
 </div>
-<div id="criterios" class="section level1">
+<div id="criteria" class="section level1">
 <h1 class="hasAnchor">
-<a href="#criterios" class="anchor"></a>Criterios</h1>
-<p>Entre los criterios generales de contenido se establece que las etiquetas deben:</p>
+<a href="#criteria" class="anchor"></a>Criteria</h1>
+<p>Among the general content criteria it is established that the labels must:</p>
 <ol style="list-style-type: decimal">
-<li>identificar un material genético</li>
-<li>usar un codigo facilmente legible por lectores</li>
-<li>visualizar información explicita selécta sobre el material</li>
-<li>visualizar informacion adicional para facilitar el manejo local del grupo</li>
+<li>identify a genetic material</li>
+<li>use a code easily readable by readers</li>
+<li>visualize explicit information about the material</li>
+<li>display additional information to facilitate the local management of the group</li>
 </ol>
-<p>Entre los criterios generales de diseño se establece:</p>
+<p>Among the general design criteria is established:</p>
 <ul>
-<li>Los elementos textuales y graficos deben ser claros para ser leidos rapidamente tanto por maquina como por personas</li>
-<li>Una estructura común y estandarizado también facilita la lectura y comprensión</li>
-<li>Los elementos estructurales deben adaptarse a varios formatos de etiquetas</li>
+<li>The textual and graphic elements must be clear to be read quickly by machine or by people</li>
+<li>A common and standardized structure also facilitates reading and comprehension</li>
+<li>Structural elements must adapt to various label formats</li>
 </ul>
 </div>
-<div id="buenas-practicas" class="section level1">
+<div id="good-practices" class="section level1">
 <h1 class="hasAnchor">
-<a href="#buenas-practicas" class="anchor"></a>Buenas prácticas</h1>
+<a href="#good-practices" class="anchor"></a>Good practices</h1>
 <ul>
-<li>En la medida posible se debe usar estándares populares para bajar costos de adquisición y mantenimiento.</li>
-<li>Se debe usar tecnologías robustas ya que las etiquetas van a ser manipuladas con frecuencia y a veces bajo condiciones duras como en el campo o a temperaturas muy bajas.</li>
-<li>Las etiquetas también deben ser altamente consistentes entre ellos como una medida de calidad y de imagen institucional.</li>
-<li>Se identifica el código QR como la tecnología de impresión de ´código de barra´.
-<ul>
-<li>Los códigos dos dimensionales (2D) son mas robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar lineas lo cual malogra los codigos de barras de lineas.</li>
-<li>También los códigos 2D tienen un mejor sistema interno para asegurar la lectura de contenido a pesar de posibles daños locales.</li>
-<li>El código QR es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la acceptación.</li>
-</ul>
-</li>
+<li>To the extent possible, popular standards should be used to lower acquisition and maintenance costs.</li>
+<li>Robust technologies must be used since the labels are going to be manipulated frequently and sometimes under hard conditions such as in the field or at very low temperatures.</li>
+<li>The labels must also be highly consistent among them as a measure of quality and institutional image.</li>
+<li>The QR code is identified as the ‘bar code’ printing technology.</li>
+<li>Two dimensional (2D) codes are more robust to printer wear, since over time printers tend to skip lines which spoils the line bar codes.</li>
+<li>Also 2D codes have a better internal system to ensure the reading of content despite possible local damage.</li>
+<li>The QR code is a very popular current code and many cell phones or other modern equipment can read it apart from specialized equipment. This facilitates implementation and acceptance.</li>
 </ul>
 </div>
-<div id="implementacion" class="section level1">
+<div id="implementation" class="section level1">
 <h1 class="hasAnchor">
-<a href="#implementacion" class="anchor"></a>Implementación</h1>
-<p>Correspondiendo a la tarea a) se definó un diseño basado en cuatro bloques cuadraticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetes disponibles se establecio tambien que por bloque un máximo de cuatro campos son disponibles. En mas detalle:</p>
+<a href="#implementation" class="anchor"></a>Implementation</h1>
+<p>Corresponding to task a) a design based on four quadratic blocks was defined. Each block corresponds to one of the listed criteria. Based on the available label models, it was also established that a maximum of four fields are available per block. In more detail:</p>
 <ol style="list-style-type: decimal">
-<li>Bloque ID (identificación): Corresponde a la cabezera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:</li>
+<li>Block ID (identification): Corresponds to the head of a formal letter: identifies the authority, place, date, and genetic material. Suggested sequence:</li>
 </ol>
 <ul>
-<li>autoridad: mediante un logo</li>
-<li>Unidad (p.e. Dirección)</li>
-<li>Subunidad (p.e. collección)</li>
-<li>fecha de impresión</li>
-<li>Código de collección principál</li>
+<li>authority: through a logo</li>
+<li>Unit (eg Address)</li>
+<li>Subunit (eg collection)</li>
+<li>printing date</li>
+<li>Main collection code</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Bloque QR: Contiene todos los datos impresos en forma codificada</li>
+<li>QR Block: Contains all data printed in encrypted form</li>
 </ol>
 <ul>
-<li>Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de collecta y otras observaciones.</li>
+<li>Option for a next version: include important documentation data as in the case of labeling herbaria. It may include descriptions of the place of collecta and other observations.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Bloque de información mínima estandarizada. Aquí se podra incluir cuatro campos. La idea principal es que seán algo común entre collecciones como</li>
+<li>Standardized minimum information block. Here you can include four fields. The main idea is that they will be common among collections as</li>
 </ol>
 <ul>
-<li>nombre del cultivo</li>
-<li>nombre científico</li>
-<li>fecha indicativo de edad de materiál (siembra, multiplicación, extracción de ADN, collecta de herbario, etc)</li>
-<li>proveniencia de materiál (collección, cruze, país, …)</li>
+<li>name of the crop</li>
+<li>scientific name</li>
+<li>Indicative date of material age (sowing, multiplication, extraction of DNA, collecta herbarium, etc)</li>
+<li>origin of material (collection, crossing, country, …)</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Bloque información addicionál. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:</li>
+<li>Additional information block. Main idea is to provide important logistical information. It could be included for example:</li>
 </ol>
 <ul>
-<li>Codigo laboratorio o mejorador</li>
-<li>Método de preparación de material o medio</li>
-<li>Importáncia de materiál: forma parte de una colleción core.</li>
-<li>Estado de limpieza fitosanitario</li>
-<li>Observaciones</li>
+<li>Laboratory code or improver</li>
+<li>Method of preparation of material or medium</li>
+<li>Material Importance: part of a core collection.</li>
+<li>State of phytosanitary cleaning</li>
+<li>Observations</li>
 <li>etc.</li>
 </ul>
-<p>Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadraticas y semi-rectangulares manteninedo legibilidad y un diseño visual atractivo. En etqiuetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).</p>
-<p>Se implemento un algoritmo en R para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo accepta principalmente una tabla con los datos entrantes, datos de cabezera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por materiál genético. Los tres datos de cabezera son configurables al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el logo no cambia y este parametro es solo configurable al nivel de plantilla. La plantilla define varios detalles mas especificos como:</p>
+<p>It was confirmed that the four blocks can be organized in the form of a 2x2 table in quadratic and semi-rectangular labels, maintaining a readability and an attractive visual design. In rectangular profiles such as field ties you can organize the blocks in the form of a row with four columns (1x4) or in a column with four rows (4x1).</p>
+<p>An algorithm was implemented in R to generate samples for three different sizes of labels. The algorithm mainly accepts a table with the incoming data, header data, and the name of a template file. The incoming table must have four to eight fields per genetic material. The three header data are configurable at the batch level (ie they are repeated on each label) for the ID block. It is assumed that the authority or the logo does not change and this parameter is only configurable at the template level. The template defines several more specific details such as:</p>
 <ul>
-<li>margen alrededor</li>
+<li>margin around</li>
 <li>layout: 2x2, 1x4, 4x1</li>
 <li>Font</li>
-<li>Fontface: normál, itálico, grueso, italico-grueso</li>
+<li>Fontface: normál, italic, coarse, italico-coarse</li>
 <li>Fontsize</li>
-<li>Imprimir o no imprimir los nombres de los campos (para mejorar legibilidad en etiquetas chicas y/o ahorrar tinta)</li>
-<li>Espacio entre campos: 1 o 2</li>
-<li>otros en evaluación</li>
+<li>Print or not print the names of the fields (to improve readability on small labels and / or save ink)</li>
+<li>Space between fields: 1 or 2</li>
+<li>others under evaluation</li>
 </ul>
-<p>Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.</p>
+<p>Four samples have been created with some sample data invented for eleven materials in three collections.</p>
 </div>
   </div>
 
@@ -184,10 +187,10 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#motivacion">Motivación</a></li>
-      <li><a href="#criterios">Criterios</a></li>
-      <li><a href="#buenas-practicas">Buenas prácticas</a></li>
-      <li><a href="#implementacion">Implementación</a></li>
+<li><a href="#motivation">Motivation</a></li>
+      <li><a href="#criteria">Criteria</a></li>
+      <li><a href="#good-practices">Good practices</a></li>
+      <li><a href="#implementation">Implementation</a></li>
       </ul>
 </div>
       </div>
