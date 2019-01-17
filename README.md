@@ -6,10 +6,6 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/rsimon64/qr4genebanks?branch=master&svg=true)](https://ci.appveyor.com/project/rsimon64/qr4genebanks)
-[![Travis build
-status](https://travis-ci.org/rsimon64/qr4genebanks.svg?branch=master)](https://travis-ci.org/rsimon64/qr4genebanks)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/rsimon64/qr4genebanks/master.svg)](https://codecov.io/github/rsimon64/qr4genebanks?branch=master)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
@@ -40,7 +36,7 @@ The following code will create a PDF file. Here we insert a PNG
 snapshot. ![sample](sample.png)
 
 ``` r
-qr4genebanks::qg?print_labels()
+qr4genebanks::qg_print_labels()
 ```
 
 ## Configuration
