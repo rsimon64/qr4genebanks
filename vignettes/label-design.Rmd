@@ -1,5 +1,5 @@
 ---
-title: "Consideraciones en el diseño de etiquetas para código de barras"
+title: "Consideraciones en el dise&#0241;o de etiquetas para c&#0243;digo de barras"
 author: "Reinhard Simon"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
