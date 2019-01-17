@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">qr4genebanks</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.4.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.0</span>
       </span>
     </div>
 
@@ -94,21 +94,21 @@
 <div id="motivacion" class="section level1">
 <h1 class="hasAnchor">
 <a href="#motivacion" class="anchor"></a>Motivación</h1>
-<p>Etiquetas con códigos de barra han sido identificados para ser implementados en los laboratorios y estaciones del INIA. Actualmente se cuenta con una impresora semi-industrial de marca Zebra en Lima. Faltan principlamente dos tareas: a) la evaluación de diseños y b) la disponibilidad de un programa en idioma español para generar las etiquetas por personal técnico.</p>
+<p>Las etiquetas con códigos digitales son una herramienta básica en el seguimiento de materiales genéticos.</p>
 </div>
 <div id="criterios" class="section level1">
 <h1 class="hasAnchor">
 <a href="#criterios" class="anchor"></a>Criterios</h1>
 <p>Entre los criterios generales de contenido se establece que las etiquetas deben:</p>
 <ol style="list-style-type: decimal">
-<li>identificar un material genético</li>
-<li>usar un codigo facilmente legible por lectores</li>
-<li>visualizar información explicita selécta sobre el material</li>
-<li>visualizar informacion adicional para facilitar el manejo local del grupo</li>
+<li>Identificar un material genético</li>
+<li>Usar un código fácilmente legible por lectores</li>
+<li>Visualizar información explicita selecta sobre el material</li>
+<li>Visualizar información adicional para facilitar el manejo local del grupo</li>
 </ol>
 <p>Entre los criterios generales de diseño se establece:</p>
 <ul>
-<li>Los elementos textuales y graficos deben ser claros para ser leidos rapidamente tanto por maquina como por personas</li>
+<li>Los elementos textuales y gráficos deben ser claros para ser leídos rápidamente tanto por maquina como por personas</li>
 <li>Una estructura común y estandarizado también facilita la lectura y comprensión</li>
 <li>Los elementos estructurales deben adaptarse a varios formatos de etiquetas</li>
 </ul>
@@ -120,68 +120,65 @@
 <li>En la medida posible se debe usar estándares populares para bajar costos de adquisición y mantenimiento.</li>
 <li>Se debe usar tecnologías robustas ya que las etiquetas van a ser manipuladas con frecuencia y a veces bajo condiciones duras como en el campo o a temperaturas muy bajas.</li>
 <li>Las etiquetas también deben ser altamente consistentes entre ellos como una medida de calidad y de imagen institucional.</li>
-<li>Se identifica el código QR como la tecnología de impresión de ´código de barra´.
-<ul>
-<li>Los códigos dos dimensionales (2D) son mas robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar lineas lo cual malogra los codigos de barras de lineas.</li>
+<li>Se identifica el código ‘QR’ como la tecnología de impresión de código de barra.</li>
+<li>Los códigos dos dimensionales (2D) son más robustos a desgaste de impresoras ya que con el tiempo las impresoras tienden a saltar líneas lo cual malogra los códigos de barras lineales.</li>
 <li>También los códigos 2D tienen un mejor sistema interno para asegurar la lectura de contenido a pesar de posibles daños locales.</li>
-<li>El código QR es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la acceptación.</li>
-</ul>
-</li>
+<li>El código ‘QR’ es un código actual muy popular y muchos celulares u otros equipos modernos pueden leerlo a parte de los equipos especializados. Esto facilita la implementación y la aceptación.</li>
 </ul>
 </div>
 <div id="implementacion" class="section level1">
 <h1 class="hasAnchor">
 <a href="#implementacion" class="anchor"></a>Implementación</h1>
-<p>Correspondiendo a la tarea a) se definó un diseño basado en cuatro bloques cuadraticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetes disponibles se establecio tambien que por bloque un máximo de cuatro campos son disponibles. En mas detalle:</p>
+<p>Correspondiendo a la tarea a) se defino un diseño basado en cuatro bloques cuadráticos. Cada bloque corresponde a uno de los criterios listados. Basado en las modelos de etiquetas disponibles se estableció también que por bloque un máximo de cuatro campos son disponibles. En más detalle:</p>
 <ol style="list-style-type: decimal">
-<li>Bloque ID (identificación): Corresponde a la cabezera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:</li>
+<li>Bloque ID (identificación): Corresponde a la cabecera de una carta formal: identifica la autoridad, el lugar, la fecha, y el material genético. Secuencia sugerida:</li>
 </ol>
 <ul>
-<li>autoridad: mediante un logo</li>
-<li>Unidad (p.e. Dirección)</li>
-<li>Subunidad (p.e. collección)</li>
+<li>autoridad: mediante un logotipo</li>
+<li>Unidad (p.e. dirección)</li>
+<li>Subunidad (p.e. colección)</li>
 <li>fecha de impresión</li>
-<li>Código de collección principál</li>
+<li>Código de colección principal</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Bloque QR: Contiene todos los datos impresos en forma codificada</li>
 </ol>
 <ul>
-<li>Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de collecta y otras observaciones.</li>
+<li>Opción para una versión próxima: incluir datos importantes de documentación como en el caso de etiquetar herbarios. Se podrá incluir descripciones del lugar de colecta y otras observaciones.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Bloque de información mínima estandarizada. Aquí se podra incluir cuatro campos. La idea principal es que seán algo común entre collecciones como</li>
+<li>Bloque de información mínima estandarizada. Aquí se podrá incluir cuatro campos. La idea principal es que sean algo común entre colecciones como</li>
 </ol>
 <ul>
 <li>nombre del cultivo</li>
 <li>nombre científico</li>
-<li>fecha indicativo de edad de materiál (siembra, multiplicación, extracción de ADN, collecta de herbario, etc)</li>
-<li>proveniencia de materiál (collección, cruze, país, …)</li>
+<li>fecha indicativo de edad de material (siembra, multiplicación, extracción de ADN, colecta de herbario, etc)</li>
+<li>proveniencia de material (colección, cruce, país, …)</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Bloque información addicionál. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:</li>
+<li>Bloque información adicional. Idea principal es facilitar informaciones importantes logísticas. Podría incluirse por ejemplo:</li>
 </ol>
 <ul>
-<li>Codigo laboratorio o mejorador</li>
+<li>Código de laboratorio o de mejorador</li>
 <li>Método de preparación de material o medio</li>
-<li>Importáncia de materiál: forma parte de una colleción core.</li>
-<li>Estado de limpieza fitosanitario</li>
+<li>Importancia de material: forma parte de una coalición core.</li>
+<li>Estado de limpieza fito sanitario</li>
 <li>Observaciones</li>
 <li>etc.</li>
 </ul>
-<p>Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadraticas y semi-rectangulares manteninedo legibilidad y un diseño visual atractivo. En etqiuetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).</p>
-<p>Se implemento un algoritmo en R para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo accepta principalmente una tabla con los datos entrantes, datos de cabezera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por materiál genético. Los tres datos de cabezera son configurables al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el logo no cambia y este parametro es solo configurable al nivel de plantilla. La plantilla define varios detalles mas especificos como:</p>
+<p>Se confirmó que los cuatro bloques se pueden organizar en forma de una tabla 2x2 en etiquetas cuadráticas y rectangulares manteniendo legibilidad y un diseño visual atractivo. En etiquetas rectangulares como corbatas de campo se puede organizar los bloques en forma de una fila con cuatro columnas (1x4) o en una columna con cuatro filas (4x1).</p>
+<p>Se implemento un algoritmo en ‘R’ para generar unas muestras para tres diferentes tamaños de etiquetas. El algoritmo acepta principalmente una tabla con los datos entrantes, datos de cabecera, y el nombre de un archivo de plantilla. La tabla entrante debe contar con cuatro hasta ocho campos por material genético. Los tres datos de cabecera son modificable al nivel de lote (es decir se repiten en cada etiqueta) para el bloque ID. Se asume que la autoridad o el ‘logotipo’ no cambia y este parámetro es solo modificable al nivel de plantilla. La plantilla define varios detalles más específicos como:</p>
 <ul>
 <li>margen alrededor</li>
-<li>layout: 2x2, 1x4, 4x1</li>
-<li>Font</li>
-<li>Fontface: normál, itálico, grueso, italico-grueso</li>
-<li>Fontsize</li>
+<li>Diseño: 2x2, 1x4, 4x1</li>
+<li>Tipo de letra</li>
+<li>Cara de letra: normal, itálica, gruesa, itálica-gruesa</li>
+<li>Tmaño de letra</li>
 <li>Imprimir o no imprimir los nombres de los campos (para mejorar legibilidad en etiquetas chicas y/o ahorrar tinta)</li>
 <li>Espacio entre campos: 1 o 2</li>
 <li>otros en evaluación</li>
 </ul>
-<p>Se ha creado cuatro muestras con algúnos datos de ejemplo inventados para once materiales en tres colleciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.</p>
+<p>Se ha creado cuatro muestras con algunos datos de ejemplo inventados para once materiales en tres colecciones. Cada muestra varia en el diseño un poco dentro de las reglas establecidas.</p>
 </div>
   </div>
 
