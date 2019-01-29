@@ -34,8 +34,10 @@ sv_qr4genebanks <- function(input, output, session) {
 
     shiny::updateRadioButtons(session, "tplId",
                        trlt("layout", x),
-                       choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
-                       choiceValues = c("2x1", "3x1")
+                       choices = list.files(file.path(system.file("templates",
+                                                      package = "qr4genebanks")), pattern = "label_")
+                       # choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
+                       # choiceValues = c("2x1", "3x1")
     )
 
     output$headerTitle <- shiny::renderUI({
@@ -110,11 +112,11 @@ sv_qr4genebanks <- function(input, output, session) {
     shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
 
       #message(paste("id", tplId()))
-      tplFile <- system.file(paste0("templates/label", tplId(), ".yaml"), package = "qr4genebanks")
-      outFile <- paste0(tempdir(), input$csvFile$name, ".label", tplId(), ".pdf")
-      outName <- paste0(input$csvFile$name, ".label", tplId(), ".pdf")
+      tplFile <- system.file(paste0("templates/", tplId()), package = "qr4genebanks")
+      outFile <- paste0(tempdir(), input$csvFile$name, ".", tplId(), ".pdf")
+      outName <- paste0(input$csvFile$name, ".", tplId(), ".pdf")
 
-      qr4genebanks::qg_print_labels(csvData(), template = tplFile, tofile = outFile)
+      qr4genebanks::qg_print_labels(csvData(), template = tplFile, to_file = outFile)
 
       output$ready <- shiny::reactive({TRUE})
 

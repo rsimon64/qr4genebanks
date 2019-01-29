@@ -38,23 +38,29 @@ layout_label <- function(i, header, info, tpl) {
 
   do_block_ID <- function() {
     empty_plot(max_lines)
-    logo_path <- tpl$block_ID$logo$path
+    logo_path <- system.file(file.path("templates", tpl$block_ID$logo$path),
+                             package = "qr4genebanks")
+
+    #message(logo_path)
 
     if (is.null(logo_path)) {
-      message("Logo file not found.")
+      #message("Logo file not found.")
       logo_path <- system.file(
-        file.path("templates", "logo.png"),
+        file.path("templates", tpl$block_ID$logo$path),
         package = "qr4genebanks"
       )
     }
 
     if (file.exists(logo_path)) {
+      #message("ok 1")
       img <- imager::load.image(logo_path)
+      #message("ok 2 ")
       graphics::rasterImage(
         img,
         tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
         tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y
       )
+      #message("ok 3")
     }
 
 

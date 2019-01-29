@@ -1,0 +1,39 @@
+name: Label5
+description: "Banco Semillas"
+header1: "Recursos genéticos"
+header2: "EEAA Sta Ana"
+header3: "today"
+format: pdf
+width: 96
+height: 71
+columns: 2
+fontfamily: Helvetica
+fontface_data: 2
+fieldnames: true
+pointsize: 12
+margin: 5
+layout: 2
+labelsperrow: 2
+lines: 10
+spacer: 2
+block_ID:
+  position: 1
+  logo:
+    path: "inia.png"
+    bl_x: 0
+    bl_y: 5
+    tr_x: 11
+    tr_y: 10
+  x_pos: 5.5
+  y_pos: 4.0
+block_QR:
+  position: 4
+  only_id: true
+block_info:
+  position: 3
+  x_pos: 1
+  y_pos: 10
+block_info_optional:
+  position: 2
+  x_pos: 1
+  y_pos: 10
