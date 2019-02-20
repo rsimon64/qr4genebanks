@@ -4,7 +4,6 @@ trlt <- function(term, lang) {
   shiny::HTML(as.character(dict[term == dict$id, lang]))
 }
 
-
 sv_qr4genebanks <- function(input, output, session) {
 
   get_langs  <- function(lang) {
