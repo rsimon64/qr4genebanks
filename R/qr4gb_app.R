@@ -8,8 +8,8 @@
 #' @examples
 #'
 #' if (interactive()) {
-#' library(qr4genebanks)
-#'    qr4gb_app()
+#'
+#'    qr4genebanks::qr4gb_app()
 #' }
 #'
 #'

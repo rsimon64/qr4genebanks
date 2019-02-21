@@ -17,3 +17,5 @@
 ^.*\.pdf
 ^sample.png
 ^semillas.csv
+^desktop.ini
+^prep4cran.R
