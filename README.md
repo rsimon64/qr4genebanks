@@ -32,8 +32,7 @@ devtools::install_github("rsimon64/qr4genebanks")
 
 ## Example
 
-The following code will create a PDF file. Here we insert a PNG
-snapshot. ![sample](sample.png)
+The following code will create a PDF file.
 
 ``` r
 qr4genebanks::qg_print_labels()
