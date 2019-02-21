@@ -1,6 +1,6 @@
 Package: qr4genebanks
 Title: QR Label Creator
-Version: 0.5.2
+Version: 0.5.4
 Authors@R: c(
   person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-4608-9077",
@@ -17,7 +17,7 @@ Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: graphics, imager, qrencoder, yaml, raster, shiny,
+Imports: graphics, imager, qrencoder, yaml, raster, shiny, 
     shinydashboard
 Suggests: knitr,
     rmarkdown,

@@ -1,3 +1,12 @@
+# qr4genebanks 0.5.4
+
+* Several fixes in preparation for CRAN release
+
+# qr4genebanks 0.5.3
+
+* Removed support for French and Portuguese
+* Several fixes in preparation for CRAN release
+
 # qr4genebanks 0.4.0
 
 * Added support for French and Portuguese

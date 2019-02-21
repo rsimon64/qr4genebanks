@@ -41,6 +41,6 @@ Optional info block
 \examples{
 
 if (interactive()) {
-  print_label()
+  qg_print_labels()
 }
 }

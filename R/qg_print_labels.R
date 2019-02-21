@@ -26,7 +26,7 @@
 #' @examples
 #'
 #' if (interactive()) {
-#'   print_label()
+#'   qg_print_labels()
 #' }
 qg_print_labels <- function(info = utils::read.csv(
                           system.file("samples/invitro.csv",
