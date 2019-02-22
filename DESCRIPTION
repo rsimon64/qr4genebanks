@@ -1,6 +1,6 @@
 Package: qr4genebanks
 Title: QR Label Creator
-Version: 0.5.4
+Version: 0.5.5
 Authors@R: c(
   person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-4608-9077",
