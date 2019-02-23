@@ -1,19 +1,19 @@
-dict <- read.delim2(system.file("lang/dictionary.txt", package = "qr4genebanks"), sep = "\t")
+dict <- read.delim2(system.file("lang/dictionary.txt",
+                                package = "qr4genebanks"), sep = "\t")
 
 trlt <- function(term, lang) {
   shiny::HTML(as.character(dict[term == dict$id, lang]))
 }
 
 sv_qr4genebanks <- function(input, output, session) {
-
-  get_langs  <- function(lang) {
+  get_langs <- function(lang) {
     langs <- as.list(names(dict)[-1])
 
     n <- length(langs)
     nms <- character(n)
     vls <- character(n)
-    for( i in 1:n) {
-      nms[i] = trlt(langs[[i]], lang)
+    for (i in 1:n) {
+      nms[i] <- trlt(langs[[i]], lang)
     }
 
     return(list(langs, nms))
@@ -25,18 +25,19 @@ sv_qr4genebanks <- function(input, output, session) {
 
     # Can also set the label and select items
     shiny::updateRadioButtons(session, "lang",
-                       trlt("language", x),
-                       choiceNames = get_langs(x)[[2]],
-                       choiceValues = as.character(get_langs(x)[[1]]),
-                       selected = x
+      trlt("language", x),
+      choiceNames = get_langs(x)[[2]],
+      choiceValues = as.character(get_langs(x)[[1]]),
+      selected = x
     )
 
     shiny::updateRadioButtons(session, "tplId",
-                       trlt("layout", x),
-                       choices = list.files(file.path(system.file("templates",
-                                                      package = "qr4genebanks")), pattern = "label_")
-                       # choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
-                       # choiceValues = c("2x1", "3x1")
+      trlt("layout", x),
+      choices = list.files(file.path(system.file("templates",
+        package = "qr4genebanks"
+      )), pattern = "label_")
+      # choiceNames = c(trlt("2x1", x), trlt("3x1", x)),
+      # choiceValues = c("2x1", "3x1")
     )
 
     output$headerTitle <- shiny::renderUI({
@@ -72,10 +73,8 @@ sv_qr4genebanks <- function(input, output, session) {
           shiny::tags$li(trlt("hint4", x)),
           shiny::tags$li(trlt("hint5", x))
         )
-
       )
     })
-
   })
 
 
@@ -87,8 +86,9 @@ sv_qr4genebanks <- function(input, output, session) {
   })
 
   csvData <- shiny::reactive({
-    if (is.null(inFile()))
+    if (is.null(inFile())) {
       return(NULL)
+    }
     utils::read.csv(inFile()$datapath, stringsAsFactors = FALSE)
   })
 
@@ -101,23 +101,29 @@ sv_qr4genebanks <- function(input, output, session) {
     FALSE
   })
 
-  tplId <- shiny::reactive({input$tplId})
+  tplId <- shiny::reactive({
+    input$tplId
+  })
 
   shiny::outputOptions(output, "ready", suspendWhenHidden = FALSE)
 
 
   shiny::observeEvent(input$csvFile, {
+    shiny::withProgress(message = "Procesando ...", style = "notification",
+                        value = 1, {
 
-    shiny::withProgress(message = 'Procesando ...', style = "notification", value = 1, {
-
-      #message(paste("id", tplId()))
-      tplFile <- system.file(paste0("templates/", tplId()), package = "qr4genebanks")
+      # message(paste("id", tplId()))
+      tplFile <- system.file(paste0("templates/", tplId()),
+                             package = "qr4genebanks")
       outFile <- paste0(tempdir(), input$csvFile$name, ".", tplId(), ".pdf")
       outName <- paste0(input$csvFile$name, ".", tplId(), ".pdf")
 
-      qr4genebanks::qg_print_labels(csvData(), template = tplFile, to_file = outFile)
+      qr4genebanks::qg_print_labels(csvData(), template = tplFile,
+                                    to_file = outFile)
 
-      output$ready <- shiny::reactive({TRUE})
+      output$ready <- shiny::reactive({
+        TRUE
+      })
 
       output$downloadData <- shiny::downloadHandler(
         filename = function() {
@@ -125,7 +131,6 @@ sv_qr4genebanks <- function(input, output, session) {
         },
         content = function(con) {
           file.copy(outFile, con)
-
         }
       )
     })
@@ -138,9 +143,8 @@ sv_qr4genebanks <- function(input, output, session) {
 
 
   shiny::observe({
-    if (input$close > 0){
+    if (input$close > 0) {
       shiny::stopApp()
     }
   })
-
 }

@@ -1,15 +1,17 @@
 layout_label <- function(i, header, info, tpl) {
-
   family <- tpl$fontfamily
   max_lines <- as.numeric(tpl$lines)
 
   rec <- info[i, ]
   top1 <- ifelse(header[1] == "today", as.character(Sys.Date()),
-                 header[1])
+    header[1]
+  )
   top2 <- ifelse(header[2] == "today", as.character(Sys.Date()),
-                 header[2])
+    header[2]
+  )
   top3 <- ifelse(header[3] == "today", as.character(Sys.Date()),
-                 header[3])
+    header[3]
+  )
   top4 <- rec$ID
 
   spacer <- ifelse(tpl$spacer == 1, "\n", "\n\n")
@@ -39,12 +41,13 @@ layout_label <- function(i, header, info, tpl) {
   do_block_ID <- function() {
     empty_plot(max_lines)
     logo_path <- system.file(file.path("templates", tpl$block_ID$logo$path),
-                             package = "qr4genebanks")
+      package = "qr4genebanks"
+    )
 
-    #message(logo_path)
+    # message(logo_path)
 
     if (is.null(logo_path)) {
-      #message("Logo file not found.")
+      # message("Logo file not found.")
       logo_path <- system.file(
         file.path("templates", tpl$block_ID$logo$path),
         package = "qr4genebanks"
@@ -52,26 +55,34 @@ layout_label <- function(i, header, info, tpl) {
     }
 
     if (file.exists(logo_path)) {
-      #message("ok 1")
+      # message("ok 1")
       img <- imager::load.image(logo_path)
-      #message("ok 2 ")
+      # message("ok 2 ")
       graphics::rasterImage(
         img,
         tpl$block_ID$logo$bl_x, tpl$block_ID$logo$bl_y,
         tpl$block_ID$logo$tr_x, tpl$block_ID$logo$tr_y
       )
-      #message("ok 3")
+      # message("ok 3")
     }
 
 
-    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0,
-                   label = top1, family = family)
-    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1,
-                   label = top2, family = family)
-    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2,
-                   label = top3, family = family)
-    graphics::text(x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3,
-                   label = top4, family = family)
+    graphics::text(
+      x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 0,
+      label = top1, family = family
+    )
+    graphics::text(
+      x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 1,
+      label = top2, family = family
+    )
+    graphics::text(
+      x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 2,
+      label = top3, family = family
+    )
+    graphics::text(
+      x = tpl$block_ID$x_pos, y = tpl$block_ID$y_pos - 3,
+      label = top4, family = family
+    )
   }
 
   do_block_QR <- function() {
@@ -88,7 +99,7 @@ layout_label <- function(i, header, info, tpl) {
     empty_plot(max_lines)
     if (tpl$fieldnames) {
       graphics::legend(tpl$block_info$x_pos,
-                       tpl$block_info$y_pos + tpl$spacer / 2 - .15,
+        tpl$block_info$y_pos + tpl$spacer / 2 - .15,
         legend = paste0(blc1n, spacer),
         bty = "n"
       )
@@ -96,8 +107,8 @@ layout_label <- function(i, header, info, tpl) {
     }
 
     graphics::legend(tpl$block_info$x_pos,
-                     tpl$block_info$y_pos - 1.15 + .1 * tpl$spacer +
-                       tpl$spacer / 2,
+      tpl$block_info$y_pos - 1.15 + .1 * tpl$spacer +
+        tpl$spacer / 2,
       legend = paste0(" ", blc1, spacer), text.font = tpl$fontface_data,
       bty = "n"
     )
@@ -107,8 +118,8 @@ layout_label <- function(i, header, info, tpl) {
     empty_plot(max_lines)
     if (tpl$fieldnames) {
       graphics::legend(tpl$block_info_optional$x_pos,
-                       tpl$block_info_optional$y_pos +
-                         tpl$spacer / 2 - .15,
+        tpl$block_info_optional$y_pos +
+          tpl$spacer / 2 - .15,
         legend = paste0(" ", blc2n, spacer),
         bty = "n"
       )
@@ -116,8 +127,8 @@ layout_label <- function(i, header, info, tpl) {
     }
 
     graphics::legend(tpl$block_info$x_pos - 1,
-                     tpl$block_info$y_pos - 1.15 +
-                       .1 * tpl$spacer + tpl$spacer / 2,
+      tpl$block_info$y_pos - 1.15 +
+        .1 * tpl$spacer + tpl$spacer / 2,
       legend = paste0("", blc2, spacer), text.font = tpl$fontface_data,
       bty = "n"
     )

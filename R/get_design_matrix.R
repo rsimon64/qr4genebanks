@@ -5,7 +5,7 @@ get_design_matrix <- function(labels_per_row = 2) {
   switch(labels_per_row,
     "1" = matrix(c(
       1, 2, 3, 4
-      ), nrow = 2, ncol = 2, byrow = TRUE),
+    ), nrow = 2, ncol = 2, byrow = TRUE),
     "2" = matrix(c(
       1, 2, 5, 6,
       3, 4, 7, 8

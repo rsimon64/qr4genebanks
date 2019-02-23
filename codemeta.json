@@ -10,14 +10,14 @@
   "codeRepository": "https://rsimon64.github.io/qr4genebanks",
   "issueTracker": "https://github.com/rsimon64/qr4genebanks/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.4",
+  "version": "0.5.5",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.5.1",
+    "version": "3.5.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.5.1 (2018-07-02)",
+  "runtimePlatform": "R version 3.5.2 (2018-12-20)",
   "author": [
     {
       "@type": "Person",
@@ -111,6 +111,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "shinytest",
+      "name": "shinytest",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=shinytest"
     }
   ],
   "softwareRequirements": [
@@ -172,6 +184,30 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=raster"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "shiny",
+      "name": "shiny",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=shiny"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "shinydashboard",
+      "name": "shinydashboard",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=shinydashboard"
     }
   ],
   "readme": "https://github.com/rsimon64/qr4genebanks/blob/master/README.md",
@@ -179,5 +215,6 @@
     "https://ci.appveyor.com/project/rsimon64/qr4genebanks",
     "https://travis-ci.org/rsimon64/qr4genebanks"
   ],
-  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing"
+  "developmentStatus": "https://www.tidyverse.org/lifecycle/#maturing",
+  "releaseNotes": "https://github.com/rsimon64/qr4genebanks/blob/master/NEWS.md"
 }

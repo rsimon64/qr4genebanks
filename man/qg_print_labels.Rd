@@ -7,7 +7,7 @@
 
   qg_print_labels(info = utils::read.csv(system.file("samples/invitro.csv",
   package = "qr4genebanks"), stringsAsFactors = FALSE),
-  template = system.file("templates/label1.yaml", package =
+  template = system.file("templates/label_seeds.yaml", package =
   "qr4genebanks"), to_file = "sample.pdf")
 }
 \arguments{

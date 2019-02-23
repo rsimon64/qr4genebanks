@@ -27,4 +27,3 @@ context("Test Shiny app")
 #
 # # stop the Shiny app
 # app$stop()
-

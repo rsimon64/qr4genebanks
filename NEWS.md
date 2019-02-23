@@ -1,3 +1,7 @@
+# qr4genebanks 0.6.0
+
+* Improving test coverage
+
 # qr4genebanks 0.5.4
 
 * Several fixes in preparation for CRAN release

@@ -4,6 +4,4 @@ sv_app <- function(input, output, session) {
   session$onSessionEnded(function() {
     shiny::stopApp()
   })
-
-
 }

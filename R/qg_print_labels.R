@@ -29,14 +29,15 @@
 #'   qg_print_labels()
 #' }
 qg_print_labels <- function(info = utils::read.csv(
-                          system.file("samples/invitro.csv",
-                            package = "qr4genebanks"
-                          ), stringsAsFactors = FALSE
-                        ),
-                        template = system.file("templates/label1.yaml",
-                          package = "qr4genebanks"
-                        ),
-                        to_file = "sample.pdf") {
+                              system.file("samples/invitro.csv",
+                                package = "qr4genebanks"
+                              ),
+                              stringsAsFactors = FALSE
+                            ),
+                            template = system.file("templates/label_seeds.yaml",
+                              package = "qr4genebanks"
+                            ),
+                            to_file = "sample.pdf") {
   stopifnot(is.data.frame(info))
   stopifnot(nrow(info) > 0)
   mm_to_inch <- 0.0393701

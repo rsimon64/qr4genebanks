@@ -1,6 +1,6 @@
 Package: qr4genebanks
 Title: QR Label Creator
-Version: 0.5.5
+Version: 0.6.0
 Authors@R: c(
   person("Reinhard", "Simon", email = "rsimon64@gmail.com", role = c("aut", "cre"),
     comment = c(ORCID = "0000-0002-4608-9077",
@@ -22,8 +22,8 @@ Imports: graphics, imager, qrencoder, yaml, raster, shiny,
 Suggests: knitr,
     rmarkdown,
     covr,
-    spelling,
     testthat,
+    vdiffr,
     shinytest
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
