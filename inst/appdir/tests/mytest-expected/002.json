@@ -1,0 +1,53 @@
+{
+  "input": {
+    "close": 0,
+    "csvFile": null,
+    "lang": "de",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tplId": "label_in_vitro.yaml"
+  },
+  "output": {
+    "btnClose": {
+      "html": "App schliessen",
+      "deps": [
+
+      ]
+    },
+    "contents": null,
+    "fileLabel": {
+      "html": "Suche",
+      "deps": [
+
+      ]
+    },
+    "fileTitle": {
+      "html": "Wähle eine Datei zum drucken",
+      "deps": [
+
+      ]
+    },
+    "headerTitle": {
+      "html": "Drucke QR Etiketten",
+      "deps": [
+
+      ]
+    },
+    "previewTitle": {
+      "html": "Es werden nur die ersten sechs Reihen der Tabelle gezeigt.",
+      "deps": [
+
+      ]
+    },
+    "qrHints": {
+      "html": "<p>\n  <ol>\n    <li>Die Tabelle muss sechs bis neun Spalten haben.<\/li>\n    <li>Die erste Spalte muss den Identifikationscode enthalten.<\/li>\n    <li>Die Spalten zwei bis fünf muessen die Informationen für den ersten Block enthalten.<\/li>\n    <li>Die Spalten sechs bis neun müssen Informationen für den zweiten Block enthalten.<\/li>\n    <li>Der zweite Block kann zwischen einer und vier Spalten haben.<\/li>\n  <\/ol>\n<\/p>",
+      "deps": [
+
+      ]
+    },
+    "ready": false
+  },
+  "export": {
+
+  }
+}

@@ -46,7 +46,7 @@ Addin menu (QR4GENEBANKS -\> Print Label) or from the console in R or
 RStudio using the following line:
 
 ``` r
-qr4genebanks::qr4gb_app()
+qr4genebanks::qg_app()
 ```
 
 ## Configuration

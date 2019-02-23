@@ -1,2 +1,2 @@
 
-qr4genebanks::qr4gb_app()
+qr4genebanks::qg_app()

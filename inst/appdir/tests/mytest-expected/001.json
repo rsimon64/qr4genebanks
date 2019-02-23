@@ -1,0 +1,53 @@
+{
+  "input": {
+    "close": 0,
+    "csvFile": null,
+    "lang": "es",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tplId": "label_in_vitro.yaml"
+  },
+  "output": {
+    "btnClose": {
+      "html": "Cerrar aplicación",
+      "deps": [
+
+      ]
+    },
+    "contents": null,
+    "fileLabel": {
+      "html": "Navega",
+      "deps": [
+
+      ]
+    },
+    "fileTitle": {
+      "html": "Selecciona el archivo de datos a imprimir",
+      "deps": [
+
+      ]
+    },
+    "headerTitle": {
+      "html": "Imprimir etiqueta con código QR",
+      "deps": [
+
+      ]
+    },
+    "previewTitle": {
+      "html": "Mostrando un máximo de seis filas de la tabla.",
+      "deps": [
+
+      ]
+    },
+    "qrHints": {
+      "html": "<p>\n  <ol>\n    <li>La tabla debe tener de seis a nueve columnas.<\/li>\n    <li>La primera columna debe contener el código de identificación.<\/li>\n    <li>Las columnas dos a cinco deben contener información para el primer bloque.<\/li>\n    <li>Las columnas seis a nueve deben contener información para el segundo bloque.<\/li>\n    <li>El segundo bloque puede tener entre una a cuatro columnas.<\/li>\n  <\/ol>\n<\/p>",
+      "deps": [
+
+      ]
+    },
+    "ready": false
+  },
+  "export": {
+
+  }
+}

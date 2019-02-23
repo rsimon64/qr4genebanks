@@ -1,0 +1,12 @@
+ID,Species,Name,Extraction,Method,LabCoce,Quality,addinfo1,addinfo2
+Per12345567880,U. tuberosum,Ulluco,01/01/2018,new,lab12345,ok,info1,test1
+Per12345567881,U. tuberosum,Ulluco,02/01/2018,new,lab12346,no,info2,test2
+Per12345567882,U. tuberosum,Ulluco,03/01/2018,normal,lab12347,no,info3,test3
+Per12345567883,U. tuberosum,Ulluco,04/01/2018,new,lab12348,ok,info4,test4
+Per12345567884,U. tuberosum,Ulluco,05/01/2018,normal,lab12349,ok,info5,test5
+Per12345567885,U. tuberosum,Ulluco,06/01/2018,normal,lab12350,no,info6,test6
+Per12345567886,U. tuberosum,Ulluco,07/01/2018,new,lab12351,ok,info7,test7
+Per12345567887,U. tuberosum,Ulluco,08/01/2018,new,lab12352,ok,info8,test8
+Per12345567888,U. tuberosum,Ulluco,09/01/2018,new,lab12353,ok,info9,test9
+Per12345567889,U. tuberosum,Ulluco,10/01/2018,normal,lab12354,no,info10,test10
+Per12345567890,U. tuberosum,Ulluco,11/01/2018,new,lab12355,ok,info11,test11

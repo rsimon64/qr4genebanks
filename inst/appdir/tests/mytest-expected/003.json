@@ -1,0 +1,53 @@
+{
+  "input": {
+    "close": 0,
+    "csvFile": null,
+    "lang": "en",
+    "sidebarCollapsed": false,
+    "sidebarItemExpanded": null,
+    "tplId": "label_in_vitro.yaml"
+  },
+  "output": {
+    "btnClose": {
+      "html": "Exit app",
+      "deps": [
+
+      ]
+    },
+    "contents": null,
+    "fileLabel": {
+      "html": "Browse",
+      "deps": [
+
+      ]
+    },
+    "fileTitle": {
+      "html": "Select file to print",
+      "deps": [
+
+      ]
+    },
+    "headerTitle": {
+      "html": "Print QR label",
+      "deps": [
+
+      ]
+    },
+    "previewTitle": {
+      "html": "Showing a maximum of six rows of the table.",
+      "deps": [
+
+      ]
+    },
+    "qrHints": {
+      "html": "<p>\n  <ol>\n    <li>The table must have six to nine columns.<\/li>\n    <li>The first column must contain the identification code.<\/li>\n    <li>Columns two through five must contain information for the first block.<\/li>\n    <li>Columns six through nine must contain information for the second block.<\/li>\n    <li>The second block can have between one to four columns.<\/li>\n  <\/ol>\n<\/p>",
+      "deps": [
+
+      ]
+    },
+    "ready": false
+  },
+  "export": {
+
+  }
+}
